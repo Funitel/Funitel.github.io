@@ -4020,7 +4020,7 @@ a:hover .c9
 
 .pa
 {
-    font-size: 19px;
+    font-size: 17px;
 
     position: relative;
 
@@ -4037,7 +4037,10 @@ a:hover .c9
         font-size: 12px;
     }
 }
-
+@media (min-width: 880px){
+.pa {
+    width: 64.44445%;
+}}
 .pb
 {
     width: 12.5em;
