@@ -2046,6 +2046,7 @@ ul.q6.as li:nth-child(9) {
 
 .u6.u7 {
     background-color: #e81f4b;
+    filter: var(--img-filter-gray);
 }
 
 .u6.u7 .uv {
