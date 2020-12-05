@@ -4126,8 +4126,7 @@ a:hover .c9
 .player__controls__play-btn:hover
 {
     cursor: pointer;
-
-    background-color: var(--w4Color);
+    background-color: #FC150D;
 }
 
 .player__controls__play-btn:active
