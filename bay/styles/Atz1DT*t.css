@@ -1658,11 +1658,13 @@ ul
     padding: 0;
 }
 
-img,.pa
+img,.pa,.q3 h2,.q8.la
 {
     filter: var(--img-filter-gray);
 }
-
+.f9::selection {
+    background-color: transparent;
+}
 em
 {
     font-style: inherit;
