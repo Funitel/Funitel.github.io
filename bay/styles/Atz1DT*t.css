@@ -1658,7 +1658,7 @@ ul
     padding: 0;
 }
 
-img
+img,.pa
 {
     filter: var(--img-filter-gray);
 }
