@@ -2591,7 +2591,13 @@ ul.q6.as li:nth-child(9)
     max-width: 1000px;
     max-height: 635px;
 }
-
+@media (min-width: 689px) {
+.ya {
+    float: left;
+    margin: .5rem 2rem .875rem 0;
+    width: 300px;
+}
+}
 .t4 figure.y0
 {
     margin-right: 0;
