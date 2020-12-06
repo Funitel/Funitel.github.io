@@ -27,15 +27,7 @@ section.d7
     contain: style;
 }
 
-@font-face
-{
-    font-family: MiloTESec;
-    font-weight: 400;
-    font-style: normal;
 
-    font-display: swap;
-    src: url(../glyph/fonts/milo-secondary-subset-rg.woff2) format('woff2');
-}
 
 @font-face
 {
@@ -3937,15 +3929,16 @@ a:hover .c9
     font-weight: 700;
     line-height: 1.2;
 }
-
+.o4.eg p {
+    font-size: 20.25px;
+}
 .o4.eg .w3.la
 {
     font-size: 22.7812px;
 }
 
-.te.eh p
-{
-    font-size: 20.25px;
+.o4.eg .te.eh p {
+    font-size: 19px;
 }
 
 .o4.eg .w8 h2
