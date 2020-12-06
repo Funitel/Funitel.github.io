@@ -2619,7 +2619,25 @@ ul.q6.as li:nth-child(9)
         margin: -20px -60px -150px auto;
     }
 }
-
+    .bo.t0 h2.cu
+    {
+        margin-bottom: 20px;
+        margin-left: -4px;
+    }
+@media(min-width: 670px)
+{
+    .bo.t0 h2.cu
+    {
+        margin-left: -8px;
+    }
+}
+@media(min-width: 1200px)
+{
+    .bo.t0 h2.cu
+    {
+        margin-left: -10px;
+    }
+}
 @media(min-width: 1040px)
 {
     .bo.t0 a.t3
@@ -2633,11 +2651,6 @@ ul.q6.as li:nth-child(9)
         max-width: 670px;
     }
 
-    .bo.t0 h2
-    {
-        margin-bottom: 20px;
-        margin-left: -10px;
-    }
 }
 
 @media(min-width: 1361px)
