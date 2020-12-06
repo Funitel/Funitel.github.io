@@ -3663,16 +3663,7 @@ header#header
     contain: layout;
 }
 
-h1,
-h2,
-h3,
-h4,
-p,
-ul
-{
-    margin: 0;
-    padding: 0;
-}
+
 
 ul
 {
@@ -3954,14 +3945,12 @@ a:hover .c9
     font-size: 19px;
 }
 
-.o4.eg .w8 h2
-{
+.o4.eg .w8 h2 {
     font-family: EconSansOS;
     font-size: 21.25px;
     font-weight: 500;
-
-    margin: 20px 0 -20px;
-
+    margin-top: 20px;
+    margin-bottom: -20px;
     color: #e3120b;
 }
 
