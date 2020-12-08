@@ -1696,11 +1696,9 @@ em
     font-size: 19px;
 }
 
-.w3.la
-{
-    font-size: clamp(1.1875rem,1.0982rem + .4464vw,1.5rem);
-
-    color: #888;
+.w3.la {
+    font-size: clamp(1.125rem,1.0893rem + .1786vw,1.35rem);
+    margin-top: 30px;
 }
 
 .t2
