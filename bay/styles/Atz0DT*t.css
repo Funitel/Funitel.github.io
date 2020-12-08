@@ -1309,10 +1309,12 @@ h3.tt.r5 svg,h3.tt.r8 svg {
     contain-intrinsic-size: 720px
 }
 
-figure,h1,h2,h3,h4,img,p,ul {
+blockquote, body,figure, h1, h2, h3, h4, h5, h6, img, ol, p, pre, ul {
     margin: 0;
     padding: 0
 }
+
+
 
 img {
     filter: var(--img-filter-gray)
@@ -1907,6 +1909,55 @@ ul.q6.as li:nth-child(9) {
     }
 }
 
+
+.w8 blockquote {
+    width: 100%
+}
+
+@media (min-width:880px) {
+    .w8 blockquote>* {
+        width: 64.44445%
+    }
+}
+
+
+
+
+
+
+
+.w8 blockquote:first-child>:first-child {
+    margin-top: 0
+}
+
+.w8 blockquote:last-child>:last-child {
+    margin-bottom: 0
+}
+
+.w8 blockquote .lr {
+    padding: 40px 0;
+    margin: 40px 0;
+    color: var(--w4Color);
+    font-size: clamp(1.1875rem, 1.1161rem + 0.3571vw, 1.4375rem);
+    box-shadow: inset 0 1.5px 0 var(--w4Color), inset 0 -1.5px 0 var(--w4Color)
+}
+
+.w8 blockquote .lr * {
+    color: inherit;
+    font-weight: inherit
+}
+
+@media (min-width:880px) {
+    .w8 blockquote .lr.u5 {
+        margin: 15px 0 0
+    }
+}
+
+@media (min-width:880px) {
+    .w8.fx blockquote>* {
+        margin-left: auto
+    }
+}
 .t6 .te.te {
     margin: -.2em 0
 }
