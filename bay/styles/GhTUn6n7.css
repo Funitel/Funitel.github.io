@@ -1248,7 +1248,11 @@ h3.tt.r8 svg
 
     background-color: transparent;
 }
-
+.placeholder__word {
+    color: #595959;
+    border-radius: 3px;
+    background: #595959;
+}
 .q2,
 .y9
 {
