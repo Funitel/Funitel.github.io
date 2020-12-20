@@ -373,7 +373,7 @@ svg
 
 .zp:not(.zn) .u6
 {
-    padding-bottom: 34.75%;
+    /* padding-bottom: 34.75%; */
 }
 
 @media (min-width: 880px)
