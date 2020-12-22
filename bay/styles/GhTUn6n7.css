@@ -2107,7 +2107,7 @@ footer
 .y8
 {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 50%;
 
     width: 62%;
