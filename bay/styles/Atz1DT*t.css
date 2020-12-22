@@ -2812,7 +2812,7 @@ footer
 .y8
 {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 50%;
 
     width: 62%;
@@ -3113,7 +3113,7 @@ svg.l5
 
     width: var(--windowWidth);
     width: 100vw;
-    min-width: 1000px;
+    /*min-width: 1000px;*/
 
     border: none;
 
