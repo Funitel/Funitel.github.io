@@ -3231,6 +3231,7 @@ a:hover .c9
     position: fixed;
     z-index: 10;
     top: 0;
+     top: -1px;
     right: 0;
     left: 0;
 }
