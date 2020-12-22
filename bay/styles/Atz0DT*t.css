@@ -3204,7 +3204,9 @@ footer
         -ms-transform: translate(-50%,0);
             transform: translate(-50%,0);
 }
-
+.u0 .y8 {
+    bottom: 8px;
+}
 .gg
 {
     width: 60px;
