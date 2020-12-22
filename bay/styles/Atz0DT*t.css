@@ -3618,7 +3618,7 @@ svg.l5
 
     width: var(--windowWidth);
     width: 100vw;
-    min-width: 1000px;
+    /*min-width: 1000px;*/
 
     border: none;
 
