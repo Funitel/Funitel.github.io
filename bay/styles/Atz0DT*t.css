@@ -3194,7 +3194,7 @@ footer
 .y8
 {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 50%;
 
     width: 62%;
@@ -3203,9 +3203,6 @@ footer
     -webkit-transform: translate(-50%,0);
         -ms-transform: translate(-50%,0);
             transform: translate(-50%,0);
-}
-.u0 .y8 {
-    bottom: 8px;
 }
 .gg
 {
