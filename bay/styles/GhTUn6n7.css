@@ -1851,7 +1851,7 @@ svg.l5 {
     overflow: hidden;
     width: var(--windowWidth);
     width: 100vw;
-    min-width: 1000px;
+    /*min-width: 1000px;*/
     border: none;
     --offsetX: var(--gutterWidth); }
 
