@@ -3422,3 +3422,7 @@ ul {
     transition: visibility 0s linear 0s,opacity 1s 0s;
     opacity: 1;
 }
+
+img.u4--opened {
+    z-index: 1;
+}
