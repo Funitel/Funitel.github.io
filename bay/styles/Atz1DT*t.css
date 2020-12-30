@@ -3653,3 +3653,7 @@ h4.la.q7.q8 {
     -o-transition: width .2s;
     transition: width .2s;
 }
+
+img.u4--opened {
+    z-index: 1;
+}
