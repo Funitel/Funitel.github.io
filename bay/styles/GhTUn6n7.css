@@ -2468,3 +2468,60 @@ svg.l5 {
 
 [data-user-color-scheme=dark] {
     --title: rgb(221, 221, 221); --text: rgb(154, 154, 154); --bg: rgb(30, 30, 30); --bg-card: rgb(44, 44, 44); --head-logo: rgb(225 225 225); --img-filter-gray: grayscale(9%) saturate(87%) brightness(87%) contrast(99%); --displax: block; --displaz: none; --selection: #fff; --footer-height: 68vh; --nav-background: var(--bg); }
+
+ul.za
+{
+    left: 0;
+
+    margin: 0;
+    padding: 0;
+
+    -webkit-transform: translate(-100%,-50%);
+        -ms-transform: translate(-100%,-50%);
+            transform: translate(-100%,-50%);
+}
+@media (min-width: 1040px)
+{
+    ul.za li
+    {
+        margin-right: 30px;
+    }
+}
+@media (min-width: 880px)
+{
+    ul.za li
+    {
+        margin-right: 25px;
+    }
+}
+ul.za li
+{
+    margin-right: 20px;
+}
+ul.zo
+{
+    right: 0;
+
+    -webkit-transform: translate(100%,-50%);
+        -ms-transform: translate(100%,-50%);
+            transform: translate(100%,-50%);
+}
+
+@media (min-width: 1040px)
+{
+    ul.zo li
+    {
+        margin-left: 40px;
+    }
+}
+@media (min-width: 880px)
+{
+    ul.zo li
+    {
+        margin-left: 30px;
+    }
+}
+ul.zo li
+{
+    margin-left: 20px;
+}
