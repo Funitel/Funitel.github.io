@@ -411,7 +411,7 @@
                 this.arcDir = 0,
                 this.centerLine = 30,
                 this.waveformStrokeColor = "#eaeaef",
-                this.progressStrokeColor = "var(--w4Color)",
+                this.progressStrokeColor = "var(--issueColor)",
                 this.isTilePlayer = o,
                 this.data = this.randomizeWaveform(c),
                 o && (this.waveformStrokeColor = "#3b3f4d"),
