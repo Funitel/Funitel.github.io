@@ -1763,6 +1763,8 @@
         }
     };
     var ta = {
+    	main: "cabin.nei.st/bay/built/jwp",
+        meta: "cabin.nei.st/bay/built/jwp"
     }
       , na = function(e, a, t, n) {
         var e = [{
@@ -1838,7 +1840,7 @@
         returnURL: !1
     };
     function ca(t, e, a, n) {
-        a = 2 < arguments.length && void 0 !== a ? a : "jwplayer6",
+        a = 2 < arguments.length && void 0 !== a ? a : "8.20.1",
         n = S({}, la, n = 3 < arguments.length && void 0 !== n ? n : {});
         Me(t, e, a);
         e = f(e, a),
