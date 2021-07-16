@@ -24,3 +24,7 @@ h3.chart__title,p.chart__footnote,p.chart__source,p.chart__subtitle {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased
 }
+
+.toaster-chart ul>li:before {
+    content: none;
+}
