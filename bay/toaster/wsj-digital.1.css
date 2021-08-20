@@ -1,0 +1,1464 @@
+
+  .wsj-digital .highcharts-crosshair {
+    stroke-width: 0px; }
+  .wsj-digital rect,
+  .wsj-digital path {
+    fill: rgba(0, 0, 0, 0); }
+  .wsj-digital .highcharts-color-0 .highcharts-graph {
+    stroke: #000000; }
+  .wsj-digital .highcharts-color-0 .highcharts-area {
+    fill: #000000; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-0 {
+    fill: #000000; }
+  .wsj-digital .threshold.negative-color-0 .highcharts-negative {
+    fill: #000000; }
+  .wsj-digital .threshold .highcharts-color-0.highcharts-negative.custom-negative {
+    fill: #000000; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-0 .highcharts-point {
+    fill: #000000; }
+  .wsj-digital .highcharts-markers.highcharts-color-0 path {
+    fill: #000000; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-0 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-1 .highcharts-graph {
+    stroke: #323232; }
+  .wsj-digital .highcharts-color-1 .highcharts-area {
+    fill: #323232; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-1 {
+    fill: #323232; }
+  .wsj-digital .threshold.negative-color-1 .highcharts-negative {
+    fill: #323232; }
+  .wsj-digital .threshold .highcharts-color-1.highcharts-negative.custom-negative {
+    fill: #323232; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-1 .highcharts-point {
+    fill: #323232; }
+  .wsj-digital .highcharts-markers.highcharts-color-1 path {
+    fill: #323232; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-1 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-2 .highcharts-graph {
+    stroke: #717171; }
+  .wsj-digital .highcharts-color-2 .highcharts-area {
+    fill: #717171; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-2 {
+    fill: #717171; }
+  .wsj-digital .threshold.negative-color-2 .highcharts-negative {
+    fill: #717171; }
+  .wsj-digital .threshold .highcharts-color-2.highcharts-negative.custom-negative {
+    fill: #717171; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-2 .highcharts-point {
+    fill: #717171; }
+  .wsj-digital .highcharts-markers.highcharts-color-2 path {
+    fill: #717171; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-2 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-3 .highcharts-graph {
+    stroke: #bebebe; }
+  .wsj-digital .highcharts-color-3 .highcharts-area {
+    fill: #bebebe; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-3 {
+    fill: #bebebe; }
+  .wsj-digital .threshold.negative-color-3 .highcharts-negative {
+    fill: #bebebe; }
+  .wsj-digital .threshold .highcharts-color-3.highcharts-negative.custom-negative {
+    fill: #bebebe; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-3 .highcharts-point {
+    fill: #bebebe; }
+  .wsj-digital .highcharts-markers.highcharts-color-3 path {
+    fill: #bebebe; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-3 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-4 .highcharts-graph {
+    stroke: #e1e2e3; }
+  .wsj-digital .highcharts-color-4 .highcharts-area {
+    fill: #e1e2e3; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-4 {
+    fill: #e1e2e3; }
+  .wsj-digital .threshold.negative-color-4 .highcharts-negative {
+    fill: #e1e2e3; }
+  .wsj-digital .threshold .highcharts-color-4.highcharts-negative.custom-negative {
+    fill: #e1e2e3; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-4 .highcharts-point {
+    fill: #e1e2e3; }
+  .wsj-digital .highcharts-markers.highcharts-color-4 path {
+    fill: #e1e2e3; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-4 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-5 .highcharts-graph {
+    stroke: #edeeef; }
+  .wsj-digital .highcharts-color-5 .highcharts-area {
+    fill: #edeeef; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-5 {
+    fill: #edeeef; }
+  .wsj-digital .threshold.negative-color-5 .highcharts-negative {
+    fill: #edeeef; }
+  .wsj-digital .threshold .highcharts-color-5.highcharts-negative.custom-negative {
+    fill: #edeeef; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-5 .highcharts-point {
+    fill: #edeeef; }
+  .wsj-digital .highcharts-markers.highcharts-color-5 path {
+    fill: #edeeef; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-5 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-6 .highcharts-graph {
+    stroke: #ce3139; }
+  .wsj-digital .highcharts-color-6 .highcharts-area {
+    fill: #ce3139; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-6 {
+    fill: #ce3139; }
+  .wsj-digital .threshold.negative-color-6 .highcharts-negative {
+    fill: #ce3139; }
+  .wsj-digital .threshold .highcharts-color-6.highcharts-negative.custom-negative {
+    fill: #ce3139; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-6 .highcharts-point {
+    fill: #ce3139; }
+  .wsj-digital .highcharts-markers.highcharts-color-6 path {
+    fill: #ce3139; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-6 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-7 .highcharts-graph {
+    stroke: #ee3a43; }
+  .wsj-digital .highcharts-color-7 .highcharts-area {
+    fill: #ee3a43; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-7 {
+    fill: #ee3a43; }
+  .wsj-digital .threshold.negative-color-7 .highcharts-negative {
+    fill: #ee3a43; }
+  .wsj-digital .threshold .highcharts-color-7.highcharts-negative.custom-negative {
+    fill: #ee3a43; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-7 .highcharts-point {
+    fill: #ee3a43; }
+  .wsj-digital .highcharts-markers.highcharts-color-7 path {
+    fill: #ee3a43; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-7 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-8 .highcharts-graph {
+    stroke: #f48474; }
+  .wsj-digital .highcharts-color-8 .highcharts-area {
+    fill: #f48474; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-8 {
+    fill: #f48474; }
+  .wsj-digital .threshold.negative-color-8 .highcharts-negative {
+    fill: #f48474; }
+  .wsj-digital .threshold .highcharts-color-8.highcharts-negative.custom-negative {
+    fill: #f48474; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-8 .highcharts-point {
+    fill: #f48474; }
+  .wsj-digital .highcharts-markers.highcharts-color-8 path {
+    fill: #f48474; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-8 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-9 .highcharts-graph {
+    stroke: #f8aa99; }
+  .wsj-digital .highcharts-color-9 .highcharts-area {
+    fill: #f8aa99; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-9 {
+    fill: #f8aa99; }
+  .wsj-digital .threshold.negative-color-9 .highcharts-negative {
+    fill: #f8aa99; }
+  .wsj-digital .threshold .highcharts-color-9.highcharts-negative.custom-negative {
+    fill: #f8aa99; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-9 .highcharts-point {
+    fill: #f8aa99; }
+  .wsj-digital .highcharts-markers.highcharts-color-9 path {
+    fill: #f8aa99; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-9 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-10 .highcharts-graph {
+    stroke: #fcd6ca; }
+  .wsj-digital .highcharts-color-10 .highcharts-area {
+    fill: #fcd6ca; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-10 {
+    fill: #fcd6ca; }
+  .wsj-digital .threshold.negative-color-10 .highcharts-negative {
+    fill: #fcd6ca; }
+  .wsj-digital .threshold .highcharts-color-10.highcharts-negative.custom-negative {
+    fill: #fcd6ca; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-10 .highcharts-point {
+    fill: #fcd6ca; }
+  .wsj-digital .highcharts-markers.highcharts-color-10 path {
+    fill: #fcd6ca; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-10 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-11 .highcharts-graph {
+    stroke: #0079ae; }
+  .wsj-digital .highcharts-color-11 .highcharts-area {
+    fill: #0079ae; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-11 {
+    fill: #0079ae; }
+  .wsj-digital .threshold.negative-color-11 .highcharts-negative {
+    fill: #0079ae; }
+  .wsj-digital .threshold .highcharts-color-11.highcharts-negative.custom-negative {
+    fill: #0079ae; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-11 .highcharts-point {
+    fill: #0079ae; }
+  .wsj-digital .highcharts-markers.highcharts-color-11 path {
+    fill: #0079ae; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-11 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-12 .highcharts-graph {
+    stroke: #0098db; }
+  .wsj-digital .highcharts-color-12 .highcharts-area {
+    fill: #0098db; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-12 {
+    fill: #0098db; }
+  .wsj-digital .threshold.negative-color-12 .highcharts-negative {
+    fill: #0098db; }
+  .wsj-digital .threshold .highcharts-color-12.highcharts-negative.custom-negative {
+    fill: #0098db; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-12 .highcharts-point {
+    fill: #0098db; }
+  .wsj-digital .highcharts-markers.highcharts-color-12 path {
+    fill: #0098db; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-12 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-13 .highcharts-graph {
+    stroke: #95cbee; }
+  .wsj-digital .highcharts-color-13 .highcharts-area {
+    fill: #95cbee; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-13 {
+    fill: #95cbee; }
+  .wsj-digital .threshold.negative-color-13 .highcharts-negative {
+    fill: #95cbee; }
+  .wsj-digital .threshold .highcharts-color-13.highcharts-negative.custom-negative {
+    fill: #95cbee; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-13 .highcharts-point {
+    fill: #95cbee; }
+  .wsj-digital .highcharts-markers.highcharts-color-13 path {
+    fill: #95cbee; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-13 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-14 .highcharts-graph {
+    stroke: #c9e2f5; }
+  .wsj-digital .highcharts-color-14 .highcharts-area {
+    fill: #c9e2f5; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-14 {
+    fill: #c9e2f5; }
+  .wsj-digital .threshold.negative-color-14 .highcharts-negative {
+    fill: #c9e2f5; }
+  .wsj-digital .threshold .highcharts-color-14.highcharts-negative.custom-negative {
+    fill: #c9e2f5; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-14 .highcharts-point {
+    fill: #c9e2f5; }
+  .wsj-digital .highcharts-markers.highcharts-color-14 path {
+    fill: #c9e2f5; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-14 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-15 .highcharts-graph {
+    stroke: #e6eff9; }
+  .wsj-digital .highcharts-color-15 .highcharts-area {
+    fill: #e6eff9; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-15 {
+    fill: #e6eff9; }
+  .wsj-digital .threshold.negative-color-15 .highcharts-negative {
+    fill: #e6eff9; }
+  .wsj-digital .threshold .highcharts-color-15.highcharts-negative.custom-negative {
+    fill: #e6eff9; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-15 .highcharts-point {
+    fill: #e6eff9; }
+  .wsj-digital .highcharts-markers.highcharts-color-15 path {
+    fill: #e6eff9; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-15 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-16 .highcharts-graph {
+    stroke: #52a045; }
+  .wsj-digital .highcharts-color-16 .highcharts-area {
+    fill: #52a045; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-16 {
+    fill: #52a045; }
+  .wsj-digital .threshold.negative-color-16 .highcharts-negative {
+    fill: #52a045; }
+  .wsj-digital .threshold .highcharts-color-16.highcharts-negative.custom-negative {
+    fill: #52a045; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-16 .highcharts-point {
+    fill: #52a045; }
+  .wsj-digital .highcharts-markers.highcharts-color-16 path {
+    fill: #52a045; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-16 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-17 .highcharts-graph {
+    stroke: #63bc51; }
+  .wsj-digital .highcharts-color-17 .highcharts-area {
+    fill: #63bc51; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-17 {
+    fill: #63bc51; }
+  .wsj-digital .threshold.negative-color-17 .highcharts-negative {
+    fill: #63bc51; }
+  .wsj-digital .threshold .highcharts-color-17.highcharts-negative.custom-negative {
+    fill: #63bc51; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-17 .highcharts-point {
+    fill: #63bc51; }
+  .wsj-digital .highcharts-markers.highcharts-color-17 path {
+    fill: #63bc51; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-17 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-18 .highcharts-graph {
+    stroke: #a2d292; }
+  .wsj-digital .highcharts-color-18 .highcharts-area {
+    fill: #a2d292; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-18 {
+    fill: #a2d292; }
+  .wsj-digital .threshold.negative-color-18 .highcharts-negative {
+    fill: #a2d292; }
+  .wsj-digital .threshold .highcharts-color-18.highcharts-negative.custom-negative {
+    fill: #a2d292; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-18 .highcharts-point {
+    fill: #a2d292; }
+  .wsj-digital .highcharts-markers.highcharts-color-18 path {
+    fill: #a2d292; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-18 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-19 .highcharts-graph {
+    stroke: #c6e2ba; }
+  .wsj-digital .highcharts-color-19 .highcharts-area {
+    fill: #c6e2ba; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-19 {
+    fill: #c6e2ba; }
+  .wsj-digital .threshold.negative-color-19 .highcharts-negative {
+    fill: #c6e2ba; }
+  .wsj-digital .threshold .highcharts-color-19.highcharts-negative.custom-negative {
+    fill: #c6e2ba; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-19 .highcharts-point {
+    fill: #c6e2ba; }
+  .wsj-digital .highcharts-markers.highcharts-color-19 path {
+    fill: #c6e2ba; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-19 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-20 .highcharts-graph {
+    stroke: #e6f2e1; }
+  .wsj-digital .highcharts-color-20 .highcharts-area {
+    fill: #e6f2e1; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-20 {
+    fill: #e6f2e1; }
+  .wsj-digital .threshold.negative-color-20 .highcharts-negative {
+    fill: #e6f2e1; }
+  .wsj-digital .threshold .highcharts-color-20.highcharts-negative.custom-negative {
+    fill: #e6f2e1; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-20 .highcharts-point {
+    fill: #e6f2e1; }
+  .wsj-digital .highcharts-markers.highcharts-color-20 path {
+    fill: #e6f2e1; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-20 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-21 .highcharts-graph {
+    stroke: #e29320; }
+  .wsj-digital .highcharts-color-21 .highcharts-area {
+    fill: #e29320; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-21 {
+    fill: #e29320; }
+  .wsj-digital .threshold.negative-color-21 .highcharts-negative {
+    fill: #e29320; }
+  .wsj-digital .threshold .highcharts-color-21.highcharts-negative.custom-negative {
+    fill: #e29320; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-21 .highcharts-point {
+    fill: #e29320; }
+  .wsj-digital .highcharts-markers.highcharts-color-21 path {
+    fill: #e29320; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-21 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-22 .highcharts-graph {
+    stroke: #f9a224; }
+  .wsj-digital .highcharts-color-22 .highcharts-area {
+    fill: #f9a224; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-22 {
+    fill: #f9a224; }
+  .wsj-digital .threshold.negative-color-22 .highcharts-negative {
+    fill: #f9a224; }
+  .wsj-digital .threshold .highcharts-color-22.highcharts-negative.custom-negative {
+    fill: #f9a224; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-22 .highcharts-point {
+    fill: #f9a224; }
+  .wsj-digital .highcharts-markers.highcharts-color-22 path {
+    fill: #f9a224; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-22 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-23 .highcharts-graph {
+    stroke: #fdc47c; }
+  .wsj-digital .highcharts-color-23 .highcharts-area {
+    fill: #fdc47c; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-23 {
+    fill: #fdc47c; }
+  .wsj-digital .threshold.negative-color-23 .highcharts-negative {
+    fill: #fdc47c; }
+  .wsj-digital .threshold .highcharts-color-23.highcharts-negative.custom-negative {
+    fill: #fdc47c; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-23 .highcharts-point {
+    fill: #fdc47c; }
+  .wsj-digital .highcharts-markers.highcharts-color-23 path {
+    fill: #fdc47c; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-23 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-24 .highcharts-graph {
+    stroke: #edc639; }
+  .wsj-digital .highcharts-color-24 .highcharts-area {
+    fill: #edc639; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-24 {
+    fill: #edc639; }
+  .wsj-digital .threshold.negative-color-24 .highcharts-negative {
+    fill: #edc639; }
+  .wsj-digital .threshold .highcharts-color-24.highcharts-negative.custom-negative {
+    fill: #edc639; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-24 .highcharts-point {
+    fill: #edc639; }
+  .wsj-digital .highcharts-markers.highcharts-color-24 path {
+    fill: #edc639; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-24 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-25 .highcharts-graph {
+    stroke: #ffd63d; }
+  .wsj-digital .highcharts-color-25 .highcharts-area {
+    fill: #ffd63d; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-25 {
+    fill: #ffd63d; }
+  .wsj-digital .threshold.negative-color-25 .highcharts-negative {
+    fill: #ffd63d; }
+  .wsj-digital .threshold .highcharts-color-25.highcharts-negative.custom-negative {
+    fill: #ffd63d; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-25 .highcharts-point {
+    fill: #ffd63d; }
+  .wsj-digital .highcharts-markers.highcharts-color-25 path {
+    fill: #ffd63d; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-25 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-26 .highcharts-graph {
+    stroke: #bb2b77; }
+  .wsj-digital .highcharts-color-26 .highcharts-area {
+    fill: #bb2b77; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-26 {
+    fill: #bb2b77; }
+  .wsj-digital .threshold.negative-color-26 .highcharts-negative {
+    fill: #bb2b77; }
+  .wsj-digital .threshold .highcharts-color-26.highcharts-negative.custom-negative {
+    fill: #bb2b77; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-26 .highcharts-point {
+    fill: #bb2b77; }
+  .wsj-digital .highcharts-markers.highcharts-color-26 path {
+    fill: #bb2b77; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-26 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-27 .highcharts-graph {
+    stroke: #d991b2; }
+  .wsj-digital .highcharts-color-27 .highcharts-area {
+    fill: #d991b2; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-27 {
+    fill: #d991b2; }
+  .wsj-digital .threshold.negative-color-27 .highcharts-negative {
+    fill: #d991b2; }
+  .wsj-digital .threshold .highcharts-color-27.highcharts-negative.custom-negative {
+    fill: #d991b2; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-27 .highcharts-point {
+    fill: #d991b2; }
+  .wsj-digital .highcharts-markers.highcharts-color-27 path {
+    fill: #d991b2; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-27 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-28 .highcharts-graph {
+    stroke: #eee2bd; }
+  .wsj-digital .highcharts-color-28 .highcharts-area {
+    fill: #eee2bd; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-28 {
+    fill: #eee2bd; }
+  .wsj-digital .threshold.negative-color-28 .highcharts-negative {
+    fill: #eee2bd; }
+  .wsj-digital .threshold .highcharts-color-28.highcharts-negative.custom-negative {
+    fill: #eee2bd; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-28 .highcharts-point {
+    fill: #eee2bd; }
+  .wsj-digital .highcharts-markers.highcharts-color-28 path {
+    fill: #eee2bd; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-28 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-29 .highcharts-graph {
+    stroke: #f5eeda; }
+  .wsj-digital .highcharts-color-29 .highcharts-area {
+    fill: #f5eeda; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-29 {
+    fill: #f5eeda; }
+  .wsj-digital .threshold.negative-color-29 .highcharts-negative {
+    fill: #f5eeda; }
+  .wsj-digital .threshold .highcharts-color-29.highcharts-negative.custom-negative {
+    fill: #f5eeda; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-29 .highcharts-point {
+    fill: #f5eeda; }
+  .wsj-digital .highcharts-markers.highcharts-color-29 path {
+    fill: #f5eeda; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-29 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-30 .highcharts-graph {
+    stroke: #c3a730; }
+  .wsj-digital .highcharts-color-30 .highcharts-area {
+    fill: #c3a730; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-30 {
+    fill: #c3a730; }
+  .wsj-digital .threshold.negative-color-30 .highcharts-negative {
+    fill: #c3a730; }
+  .wsj-digital .threshold .highcharts-color-30.highcharts-negative.custom-negative {
+    fill: #c3a730; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-30 .highcharts-point {
+    fill: #c3a730; }
+  .wsj-digital .highcharts-markers.highcharts-color-30 path {
+    fill: #c3a730; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-30 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-31 .highcharts-graph {
+    stroke: #bfb980; }
+  .wsj-digital .highcharts-color-31 .highcharts-area {
+    fill: #bfb980; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-31 {
+    fill: #bfb980; }
+  .wsj-digital .threshold.negative-color-31 .highcharts-negative {
+    fill: #bfb980; }
+  .wsj-digital .threshold .highcharts-color-31.highcharts-negative.custom-negative {
+    fill: #bfb980; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-31 .highcharts-point {
+    fill: #bfb980; }
+  .wsj-digital .highcharts-markers.highcharts-color-31 path {
+    fill: #bfb980; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-31 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-32 .highcharts-graph {
+    stroke: #dedab9; }
+  .wsj-digital .highcharts-color-32 .highcharts-area {
+    fill: #dedab9; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-32 {
+    fill: #dedab9; }
+  .wsj-digital .threshold.negative-color-32 .highcharts-negative {
+    fill: #dedab9; }
+  .wsj-digital .threshold .highcharts-color-32.highcharts-negative.custom-negative {
+    fill: #dedab9; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-32 .highcharts-point {
+    fill: #dedab9; }
+  .wsj-digital .highcharts-markers.highcharts-color-32 path {
+    fill: #dedab9; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-32 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-33 .highcharts-graph {
+    stroke: rgba(0, 0, 0, 0); }
+  .wsj-digital .highcharts-color-33 .highcharts-area {
+    fill: rgba(0, 0, 0, 0); }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-33 {
+    fill: rgba(0, 0, 0, 0); }
+  .wsj-digital .threshold.negative-color-33 .highcharts-negative {
+    fill: rgba(0, 0, 0, 0); }
+  .wsj-digital .threshold .highcharts-color-33.highcharts-negative.custom-negative {
+    fill: rgba(0, 0, 0, 0); }
+  .wsj-digital .highcharts-legend-item.highcharts-color-33 .highcharts-point {
+    fill: rgba(0, 0, 0, 0); }
+  .wsj-digital .highcharts-markers.highcharts-color-33 path {
+    fill: rgba(0, 0, 0, 0); }
+  .wsj-digital .highcharts-tooltip .highcharts-color-33 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-34 .highcharts-graph {
+    stroke: #b1282e; }
+  .wsj-digital .highcharts-color-34 .highcharts-area {
+    fill: #b1282e; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-34 {
+    fill: #b1282e; }
+  .wsj-digital .threshold.negative-color-34 .highcharts-negative {
+    fill: #b1282e; }
+  .wsj-digital .threshold .highcharts-color-34.highcharts-negative.custom-negative {
+    fill: #b1282e; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-34 .highcharts-point {
+    fill: #b1282e; }
+  .wsj-digital .highcharts-markers.highcharts-color-34 path {
+    fill: #b1282e; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-34 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-35 .highcharts-graph {
+    stroke: #ce3139; }
+  .wsj-digital .highcharts-color-35 .highcharts-area {
+    fill: #ce3139; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-35 {
+    fill: #ce3139; }
+  .wsj-digital .threshold.negative-color-35 .highcharts-negative {
+    fill: #ce3139; }
+  .wsj-digital .threshold .highcharts-color-35.highcharts-negative.custom-negative {
+    fill: #ce3139; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-35 .highcharts-point {
+    fill: #ce3139; }
+  .wsj-digital .highcharts-markers.highcharts-color-35 path {
+    fill: #ce3139; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-35 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-36 .highcharts-graph {
+    stroke: #ee3a43; }
+  .wsj-digital .highcharts-color-36 .highcharts-area {
+    fill: #ee3a43; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-36 {
+    fill: #ee3a43; }
+  .wsj-digital .threshold.negative-color-36 .highcharts-negative {
+    fill: #ee3a43; }
+  .wsj-digital .threshold .highcharts-color-36.highcharts-negative.custom-negative {
+    fill: #ee3a43; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-36 .highcharts-point {
+    fill: #ee3a43; }
+  .wsj-digital .highcharts-markers.highcharts-color-36 path {
+    fill: #ee3a43; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-36 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-37 .highcharts-graph {
+    stroke: #f48474; }
+  .wsj-digital .highcharts-color-37 .highcharts-area {
+    fill: #f48474; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-37 {
+    fill: #f48474; }
+  .wsj-digital .threshold.negative-color-37 .highcharts-negative {
+    fill: #f48474; }
+  .wsj-digital .threshold .highcharts-color-37.highcharts-negative.custom-negative {
+    fill: #f48474; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-37 .highcharts-point {
+    fill: #f48474; }
+  .wsj-digital .highcharts-markers.highcharts-color-37 path {
+    fill: #f48474; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-37 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-38 .highcharts-graph {
+    stroke: #f8aa99; }
+  .wsj-digital .highcharts-color-38 .highcharts-area {
+    fill: #f8aa99; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-38 {
+    fill: #f8aa99; }
+  .wsj-digital .threshold.negative-color-38 .highcharts-negative {
+    fill: #f8aa99; }
+  .wsj-digital .threshold .highcharts-color-38.highcharts-negative.custom-negative {
+    fill: #f8aa99; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-38 .highcharts-point {
+    fill: #f8aa99; }
+  .wsj-digital .highcharts-markers.highcharts-color-38 path {
+    fill: #f8aa99; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-38 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-39 .highcharts-graph {
+    stroke: #fcd6ca; }
+  .wsj-digital .highcharts-color-39 .highcharts-area {
+    fill: #fcd6ca; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-39 {
+    fill: #fcd6ca; }
+  .wsj-digital .threshold.negative-color-39 .highcharts-negative {
+    fill: #fcd6ca; }
+  .wsj-digital .threshold .highcharts-color-39.highcharts-negative.custom-negative {
+    fill: #fcd6ca; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-39 .highcharts-point {
+    fill: #fcd6ca; }
+  .wsj-digital .highcharts-markers.highcharts-color-39 path {
+    fill: #fcd6ca; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-39 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-40 .highcharts-graph {
+    stroke: #005d88; }
+  .wsj-digital .highcharts-color-40 .highcharts-area {
+    fill: #005d88; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-40 {
+    fill: #005d88; }
+  .wsj-digital .threshold.negative-color-40 .highcharts-negative {
+    fill: #005d88; }
+  .wsj-digital .threshold .highcharts-color-40.highcharts-negative.custom-negative {
+    fill: #005d88; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-40 .highcharts-point {
+    fill: #005d88; }
+  .wsj-digital .highcharts-markers.highcharts-color-40 path {
+    fill: #005d88; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-40 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-41 .highcharts-graph {
+    stroke: #007bb1; }
+  .wsj-digital .highcharts-color-41 .highcharts-area {
+    fill: #007bb1; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-41 {
+    fill: #007bb1; }
+  .wsj-digital .threshold.negative-color-41 .highcharts-negative {
+    fill: #007bb1; }
+  .wsj-digital .threshold .highcharts-color-41.highcharts-negative.custom-negative {
+    fill: #007bb1; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-41 .highcharts-point {
+    fill: #007bb1; }
+  .wsj-digital .highcharts-markers.highcharts-color-41 path {
+    fill: #007bb1; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-41 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-42 .highcharts-graph {
+    stroke: #0098db; }
+  .wsj-digital .highcharts-color-42 .highcharts-area {
+    fill: #0098db; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-42 {
+    fill: #0098db; }
+  .wsj-digital .threshold.negative-color-42 .highcharts-negative {
+    fill: #0098db; }
+  .wsj-digital .threshold .highcharts-color-42.highcharts-negative.custom-negative {
+    fill: #0098db; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-42 .highcharts-point {
+    fill: #0098db; }
+  .wsj-digital .highcharts-markers.highcharts-color-42 path {
+    fill: #0098db; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-42 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-43 .highcharts-graph {
+    stroke: #76bde8; }
+  .wsj-digital .highcharts-color-43 .highcharts-area {
+    fill: #76bde8; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-43 {
+    fill: #76bde8; }
+  .wsj-digital .threshold.negative-color-43 .highcharts-negative {
+    fill: #76bde8; }
+  .wsj-digital .threshold .highcharts-color-43.highcharts-negative.custom-negative {
+    fill: #76bde8; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-43 .highcharts-point {
+    fill: #76bde8; }
+  .wsj-digital .highcharts-markers.highcharts-color-43 path {
+    fill: #76bde8; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-43 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-44 .highcharts-graph {
+    stroke: #b5d7f1; }
+  .wsj-digital .highcharts-color-44 .highcharts-area {
+    fill: #b5d7f1; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-44 {
+    fill: #b5d7f1; }
+  .wsj-digital .threshold.negative-color-44 .highcharts-negative {
+    fill: #b5d7f1; }
+  .wsj-digital .threshold .highcharts-color-44.highcharts-negative.custom-negative {
+    fill: #b5d7f1; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-44 .highcharts-point {
+    fill: #b5d7f1; }
+  .wsj-digital .highcharts-markers.highcharts-color-44 path {
+    fill: #b5d7f1; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-44 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-45 .highcharts-graph {
+    stroke: #d8e7f6; }
+  .wsj-digital .highcharts-color-45 .highcharts-area {
+    fill: #d8e7f6; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-45 {
+    fill: #d8e7f6; }
+  .wsj-digital .threshold.negative-color-45 .highcharts-negative {
+    fill: #d8e7f6; }
+  .wsj-digital .threshold .highcharts-color-45.highcharts-negative.custom-negative {
+    fill: #d8e7f6; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-45 .highcharts-point {
+    fill: #d8e7f6; }
+  .wsj-digital .highcharts-markers.highcharts-color-45 path {
+    fill: #d8e7f6; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-45 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-46 .highcharts-graph {
+    stroke: #90d4d8; }
+  .wsj-digital .highcharts-color-46 .highcharts-area {
+    fill: #90d4d8; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-46 {
+    fill: #90d4d8; }
+  .wsj-digital .threshold.negative-color-46 .highcharts-negative {
+    fill: #90d4d8; }
+  .wsj-digital .threshold .highcharts-color-46.highcharts-negative.custom-negative {
+    fill: #90d4d8; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-46 .highcharts-point {
+    fill: #90d4d8; }
+  .wsj-digital .highcharts-markers.highcharts-color-46 path {
+    fill: #90d4d8; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-46 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-47 .highcharts-graph {
+    stroke: #683c8e; }
+  .wsj-digital .highcharts-color-47 .highcharts-area {
+    fill: #683c8e; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-47 {
+    fill: #683c8e; }
+  .wsj-digital .threshold.negative-color-47 .highcharts-negative {
+    fill: #683c8e; }
+  .wsj-digital .threshold .highcharts-color-47.highcharts-negative.custom-negative {
+    fill: #683c8e; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-47 .highcharts-point {
+    fill: #683c8e; }
+  .wsj-digital .highcharts-markers.highcharts-color-47 path {
+    fill: #683c8e; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-47 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-48 .highcharts-graph {
+    stroke: #63bc51; }
+  .wsj-digital .highcharts-color-48 .highcharts-area {
+    fill: #63bc51; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-48 {
+    fill: #63bc51; }
+  .wsj-digital .threshold.negative-color-48 .highcharts-negative {
+    fill: #63bc51; }
+  .wsj-digital .threshold .highcharts-color-48.highcharts-negative.custom-negative {
+    fill: #63bc51; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-48 .highcharts-point {
+    fill: #63bc51; }
+  .wsj-digital .highcharts-markers.highcharts-color-48 path {
+    fill: #63bc51; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-48 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-49 .highcharts-graph {
+    stroke: #9399ad; }
+  .wsj-digital .highcharts-color-49 .highcharts-area {
+    fill: #9399ad; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-49 {
+    fill: #9399ad; }
+  .wsj-digital .threshold.negative-color-49 .highcharts-negative {
+    fill: #9399ad; }
+  .wsj-digital .threshold .highcharts-color-49.highcharts-negative.custom-negative {
+    fill: #9399ad; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-49 .highcharts-point {
+    fill: #9399ad; }
+  .wsj-digital .highcharts-markers.highcharts-color-49 path {
+    fill: #9399ad; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-49 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-50 .highcharts-graph {
+    stroke: #f5e6a8; }
+  .wsj-digital .highcharts-color-50 .highcharts-area {
+    fill: #f5e6a8; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-50 {
+    fill: #f5e6a8; }
+  .wsj-digital .threshold.negative-color-50 .highcharts-negative {
+    fill: #f5e6a8; }
+  .wsj-digital .threshold .highcharts-color-50.highcharts-negative.custom-negative {
+    fill: #f5e6a8; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-50 .highcharts-point {
+    fill: #f5e6a8; }
+  .wsj-digital .highcharts-markers.highcharts-color-50 path {
+    fill: #f5e6a8; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-50 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-51 .highcharts-graph {
+    stroke: #898b8e; }
+  .wsj-digital .highcharts-color-51 .highcharts-area {
+    fill: #898b8e; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-51 {
+    fill: #898b8e; }
+  .wsj-digital .threshold.negative-color-51 .highcharts-negative {
+    fill: #898b8e; }
+  .wsj-digital .threshold .highcharts-color-51.highcharts-negative.custom-negative {
+    fill: #898b8e; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-51 .highcharts-point {
+    fill: #898b8e; }
+  .wsj-digital .highcharts-markers.highcharts-color-51 path {
+    fill: #898b8e; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-51 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-52 .highcharts-graph {
+    stroke: #dbdcde; }
+  .wsj-digital .highcharts-color-52 .highcharts-area {
+    fill: #dbdcde; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-52 {
+    fill: #dbdcde; }
+  .wsj-digital .threshold.negative-color-52 .highcharts-negative {
+    fill: #dbdcde; }
+  .wsj-digital .threshold .highcharts-color-52.highcharts-negative.custom-negative {
+    fill: #dbdcde; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-52 .highcharts-point {
+    fill: #dbdcde; }
+  .wsj-digital .highcharts-markers.highcharts-color-52 path {
+    fill: #dbdcde; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-52 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-53 .highcharts-graph {
+    stroke: #0294e8; }
+  .wsj-digital .highcharts-color-53 .highcharts-area {
+    fill: #0294e8; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-53 {
+    fill: #0294e8; }
+  .wsj-digital .threshold.negative-color-53 .highcharts-negative {
+    fill: #0294e8; }
+  .wsj-digital .threshold .highcharts-color-53.highcharts-negative.custom-negative {
+    fill: #0294e8; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-53 .highcharts-point {
+    fill: #0294e8; }
+  .wsj-digital .highcharts-markers.highcharts-color-53 path {
+    fill: #0294e8; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-53 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-54 .highcharts-graph {
+    stroke: #015483; }
+  .wsj-digital .highcharts-color-54 .highcharts-area {
+    fill: #015483; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-54 {
+    fill: #015483; }
+  .wsj-digital .threshold.negative-color-54 .highcharts-negative {
+    fill: #015483; }
+  .wsj-digital .threshold .highcharts-color-54.highcharts-negative.custom-negative {
+    fill: #015483; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-54 .highcharts-point {
+    fill: #015483; }
+  .wsj-digital .highcharts-markers.highcharts-color-54 path {
+    fill: #015483; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-54 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-55 .highcharts-graph {
+    stroke: #0274b6; }
+  .wsj-digital .highcharts-color-55 .highcharts-area {
+    fill: #0274b6; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-55 {
+    fill: #0274b6; }
+  .wsj-digital .threshold.negative-color-55 .highcharts-negative {
+    fill: #0274b6; }
+  .wsj-digital .threshold .highcharts-color-55.highcharts-negative.custom-negative {
+    fill: #0274b6; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-55 .highcharts-point {
+    fill: #0274b6; }
+  .wsj-digital .highcharts-markers.highcharts-color-55 path {
+    fill: #0274b6; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-55 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-56 .highcharts-graph {
+    stroke: #fc5959; }
+  .wsj-digital .highcharts-color-56 .highcharts-area {
+    fill: #fc5959; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-56 {
+    fill: #fc5959; }
+  .wsj-digital .threshold.negative-color-56 .highcharts-negative {
+    fill: #fc5959; }
+  .wsj-digital .threshold .highcharts-color-56.highcharts-negative.custom-negative {
+    fill: #fc5959; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-56 .highcharts-point {
+    fill: #fc5959; }
+  .wsj-digital .highcharts-markers.highcharts-color-56 path {
+    fill: #fc5959; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-56 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-57 .highcharts-graph {
+    stroke: #ba0303; }
+  .wsj-digital .highcharts-color-57 .highcharts-area {
+    fill: #ba0303; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-57 {
+    fill: #ba0303; }
+  .wsj-digital .threshold.negative-color-57 .highcharts-negative {
+    fill: #ba0303; }
+  .wsj-digital .threshold .highcharts-color-57.highcharts-negative.custom-negative {
+    fill: #ba0303; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-57 .highcharts-point {
+    fill: #ba0303; }
+  .wsj-digital .highcharts-markers.highcharts-color-57 path {
+    fill: #ba0303; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-57 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-58 .highcharts-graph {
+    stroke: #ff0000; }
+  .wsj-digital .highcharts-color-58 .highcharts-area {
+    fill: #ff0000; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-58 {
+    fill: #ff0000; }
+  .wsj-digital .threshold.negative-color-58 .highcharts-negative {
+    fill: #ff0000; }
+  .wsj-digital .threshold .highcharts-color-58.highcharts-negative.custom-negative {
+    fill: #ff0000; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-58 .highcharts-point {
+    fill: #ff0000; }
+  .wsj-digital .highcharts-markers.highcharts-color-58 path {
+    fill: #ff0000; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-58 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-59 .highcharts-graph {
+    stroke: #69bd45; }
+  .wsj-digital .highcharts-color-59 .highcharts-area {
+    fill: #69bd45; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-59 {
+    fill: #69bd45; }
+  .wsj-digital .threshold.negative-color-59 .highcharts-negative {
+    fill: #69bd45; }
+  .wsj-digital .threshold .highcharts-color-59.highcharts-negative.custom-negative {
+    fill: #69bd45; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-59 .highcharts-point {
+    fill: #69bd45; }
+  .wsj-digital .highcharts-markers.highcharts-color-59 path {
+    fill: #69bd45; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-59 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-60 .highcharts-graph {
+    stroke: #d8d8d8; }
+  .wsj-digital .highcharts-color-60 .highcharts-area {
+    fill: #d8d8d8; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-60 {
+    fill: #d8d8d8; }
+  .wsj-digital .threshold.negative-color-60 .highcharts-negative {
+    fill: #d8d8d8; }
+  .wsj-digital .threshold .highcharts-color-60.highcharts-negative.custom-negative {
+    fill: #d8d8d8; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-60 .highcharts-point {
+    fill: #d8d8d8; }
+  .wsj-digital .highcharts-markers.highcharts-color-60 path {
+    fill: #d8d8d8; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-60 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-61 .highcharts-graph {
+    stroke: #777777; }
+  .wsj-digital .highcharts-color-61 .highcharts-area {
+    fill: #777777; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-61 {
+    fill: #777777; }
+  .wsj-digital .threshold.negative-color-61 .highcharts-negative {
+    fill: #777777; }
+  .wsj-digital .threshold .highcharts-color-61.highcharts-negative.custom-negative {
+    fill: #777777; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-61 .highcharts-point {
+    fill: #777777; }
+  .wsj-digital .highcharts-markers.highcharts-color-61 path {
+    fill: #777777; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-61 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-62 .highcharts-graph {
+    stroke: #999999; }
+  .wsj-digital .highcharts-color-62 .highcharts-area {
+    fill: #999999; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-62 {
+    fill: #999999; }
+  .wsj-digital .threshold.negative-color-62 .highcharts-negative {
+    fill: #999999; }
+  .wsj-digital .threshold .highcharts-color-62.highcharts-negative.custom-negative {
+    fill: #999999; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-62 .highcharts-point {
+    fill: #999999; }
+  .wsj-digital .highcharts-markers.highcharts-color-62 path {
+    fill: #999999; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-62 {
+    font-weight: 500; }
+  .wsj-digital .highcharts-color-63 .highcharts-graph {
+    stroke: #555555; }
+  .wsj-digital .highcharts-color-63 .highcharts-area {
+    fill: #555555; }
+  .wsj-digital :where(.highcharts-column-series, .highcharts-bar-series) .highcharts-color-63 {
+    fill: #555555; }
+  .wsj-digital .threshold.negative-color-63 .highcharts-negative {
+    fill: #555555; }
+  .wsj-digital .threshold .highcharts-color-63.highcharts-negative.custom-negative {
+    fill: #555555; }
+  .wsj-digital .highcharts-legend-item.highcharts-color-63 .highcharts-point {
+    fill: #555555; }
+  .wsj-digital .highcharts-markers.highcharts-color-63 path {
+    fill: #555555; }
+  .wsj-digital .highcharts-tooltip .highcharts-color-63 {
+    font-weight: 500; }
+  .wsj-digital .opacity-1 path,
+  .wsj-digital .opacity-1 rect {
+    opacity: 0.01; }
+  .wsj-digital .opacity-2 path,
+  .wsj-digital .opacity-2 rect {
+    opacity: 0.02; }
+  .wsj-digital .opacity-3 path,
+  .wsj-digital .opacity-3 rect {
+    opacity: 0.03; }
+  .wsj-digital .opacity-4 path,
+  .wsj-digital .opacity-4 rect {
+    opacity: 0.04; }
+  .wsj-digital .opacity-5 path,
+  .wsj-digital .opacity-5 rect {
+    opacity: 0.05; }
+  .wsj-digital .opacity-6 path,
+  .wsj-digital .opacity-6 rect {
+    opacity: 0.06; }
+  .wsj-digital .opacity-7 path,
+  .wsj-digital .opacity-7 rect {
+    opacity: 0.07; }
+  .wsj-digital .opacity-8 path,
+  .wsj-digital .opacity-8 rect {
+    opacity: 0.08; }
+  .wsj-digital .opacity-9 path,
+  .wsj-digital .opacity-9 rect {
+    opacity: 0.09; }
+  .wsj-digital .opacity-10 path,
+  .wsj-digital .opacity-10 rect {
+    opacity: 0.1; }
+  .wsj-digital .opacity-11 path,
+  .wsj-digital .opacity-11 rect {
+    opacity: 0.11; }
+  .wsj-digital .opacity-12 path,
+  .wsj-digital .opacity-12 rect {
+    opacity: 0.12; }
+  .wsj-digital .opacity-13 path,
+  .wsj-digital .opacity-13 rect {
+    opacity: 0.13; }
+  .wsj-digital .opacity-14 path,
+  .wsj-digital .opacity-14 rect {
+    opacity: 0.14; }
+  .wsj-digital .opacity-15 path,
+  .wsj-digital .opacity-15 rect {
+    opacity: 0.15; }
+  .wsj-digital .opacity-16 path,
+  .wsj-digital .opacity-16 rect {
+    opacity: 0.16; }
+  .wsj-digital .opacity-17 path,
+  .wsj-digital .opacity-17 rect {
+    opacity: 0.17; }
+  .wsj-digital .opacity-18 path,
+  .wsj-digital .opacity-18 rect {
+    opacity: 0.18; }
+  .wsj-digital .opacity-19 path,
+  .wsj-digital .opacity-19 rect {
+    opacity: 0.19; }
+  .wsj-digital .opacity-20 path,
+  .wsj-digital .opacity-20 rect {
+    opacity: 0.2; }
+  .wsj-digital .opacity-21 path,
+  .wsj-digital .opacity-21 rect {
+    opacity: 0.21; }
+  .wsj-digital .opacity-22 path,
+  .wsj-digital .opacity-22 rect {
+    opacity: 0.22; }
+  .wsj-digital .opacity-23 path,
+  .wsj-digital .opacity-23 rect {
+    opacity: 0.23; }
+  .wsj-digital .opacity-24 path,
+  .wsj-digital .opacity-24 rect {
+    opacity: 0.24; }
+  .wsj-digital .opacity-25 path,
+  .wsj-digital .opacity-25 rect {
+    opacity: 0.25; }
+  .wsj-digital .opacity-26 path,
+  .wsj-digital .opacity-26 rect {
+    opacity: 0.26; }
+  .wsj-digital .opacity-27 path,
+  .wsj-digital .opacity-27 rect {
+    opacity: 0.27; }
+  .wsj-digital .opacity-28 path,
+  .wsj-digital .opacity-28 rect {
+    opacity: 0.28; }
+  .wsj-digital .opacity-29 path,
+  .wsj-digital .opacity-29 rect {
+    opacity: 0.29; }
+  .wsj-digital .opacity-30 path,
+  .wsj-digital .opacity-30 rect {
+    opacity: 0.3; }
+  .wsj-digital .opacity-31 path,
+  .wsj-digital .opacity-31 rect {
+    opacity: 0.31; }
+  .wsj-digital .opacity-32 path,
+  .wsj-digital .opacity-32 rect {
+    opacity: 0.32; }
+  .wsj-digital .opacity-33 path,
+  .wsj-digital .opacity-33 rect {
+    opacity: 0.33; }
+  .wsj-digital .opacity-34 path,
+  .wsj-digital .opacity-34 rect {
+    opacity: 0.34; }
+  .wsj-digital .opacity-35 path,
+  .wsj-digital .opacity-35 rect {
+    opacity: 0.35; }
+  .wsj-digital .opacity-36 path,
+  .wsj-digital .opacity-36 rect {
+    opacity: 0.36; }
+  .wsj-digital .opacity-37 path,
+  .wsj-digital .opacity-37 rect {
+    opacity: 0.37; }
+  .wsj-digital .opacity-38 path,
+  .wsj-digital .opacity-38 rect {
+    opacity: 0.38; }
+  .wsj-digital .opacity-39 path,
+  .wsj-digital .opacity-39 rect {
+    opacity: 0.39; }
+  .wsj-digital .opacity-40 path,
+  .wsj-digital .opacity-40 rect {
+    opacity: 0.4; }
+  .wsj-digital .opacity-41 path,
+  .wsj-digital .opacity-41 rect {
+    opacity: 0.41; }
+  .wsj-digital .opacity-42 path,
+  .wsj-digital .opacity-42 rect {
+    opacity: 0.42; }
+  .wsj-digital .opacity-43 path,
+  .wsj-digital .opacity-43 rect {
+    opacity: 0.43; }
+  .wsj-digital .opacity-44 path,
+  .wsj-digital .opacity-44 rect {
+    opacity: 0.44; }
+  .wsj-digital .opacity-45 path,
+  .wsj-digital .opacity-45 rect {
+    opacity: 0.45; }
+  .wsj-digital .opacity-46 path,
+  .wsj-digital .opacity-46 rect {
+    opacity: 0.46; }
+  .wsj-digital .opacity-47 path,
+  .wsj-digital .opacity-47 rect {
+    opacity: 0.47; }
+  .wsj-digital .opacity-48 path,
+  .wsj-digital .opacity-48 rect {
+    opacity: 0.48; }
+  .wsj-digital .opacity-49 path,
+  .wsj-digital .opacity-49 rect {
+    opacity: 0.49; }
+  .wsj-digital .opacity-50 path,
+  .wsj-digital .opacity-50 rect {
+    opacity: 0.5; }
+  .wsj-digital .opacity-51 path,
+  .wsj-digital .opacity-51 rect {
+    opacity: 0.51; }
+  .wsj-digital .opacity-52 path,
+  .wsj-digital .opacity-52 rect {
+    opacity: 0.52; }
+  .wsj-digital .opacity-53 path,
+  .wsj-digital .opacity-53 rect {
+    opacity: 0.53; }
+  .wsj-digital .opacity-54 path,
+  .wsj-digital .opacity-54 rect {
+    opacity: 0.54; }
+  .wsj-digital .opacity-55 path,
+  .wsj-digital .opacity-55 rect {
+    opacity: 0.55; }
+  .wsj-digital .opacity-56 path,
+  .wsj-digital .opacity-56 rect {
+    opacity: 0.56; }
+  .wsj-digital .opacity-57 path,
+  .wsj-digital .opacity-57 rect {
+    opacity: 0.57; }
+  .wsj-digital .opacity-58 path,
+  .wsj-digital .opacity-58 rect {
+    opacity: 0.58; }
+  .wsj-digital .opacity-59 path,
+  .wsj-digital .opacity-59 rect {
+    opacity: 0.59; }
+  .wsj-digital .opacity-60 path,
+  .wsj-digital .opacity-60 rect {
+    opacity: 0.6; }
+  .wsj-digital .opacity-61 path,
+  .wsj-digital .opacity-61 rect {
+    opacity: 0.61; }
+  .wsj-digital .opacity-62 path,
+  .wsj-digital .opacity-62 rect {
+    opacity: 0.62; }
+  .wsj-digital .opacity-63 path,
+  .wsj-digital .opacity-63 rect {
+    opacity: 0.63; }
+  .wsj-digital .opacity-64 path,
+  .wsj-digital .opacity-64 rect {
+    opacity: 0.64; }
+  .wsj-digital .opacity-65 path,
+  .wsj-digital .opacity-65 rect {
+    opacity: 0.65; }
+  .wsj-digital .opacity-66 path,
+  .wsj-digital .opacity-66 rect {
+    opacity: 0.66; }
+  .wsj-digital .opacity-67 path,
+  .wsj-digital .opacity-67 rect {
+    opacity: 0.67; }
+  .wsj-digital .opacity-68 path,
+  .wsj-digital .opacity-68 rect {
+    opacity: 0.68; }
+  .wsj-digital .opacity-69 path,
+  .wsj-digital .opacity-69 rect {
+    opacity: 0.69; }
+  .wsj-digital .opacity-70 path,
+  .wsj-digital .opacity-70 rect {
+    opacity: 0.7; }
+  .wsj-digital .opacity-71 path,
+  .wsj-digital .opacity-71 rect {
+    opacity: 0.71; }
+  .wsj-digital .opacity-72 path,
+  .wsj-digital .opacity-72 rect {
+    opacity: 0.72; }
+  .wsj-digital .opacity-73 path,
+  .wsj-digital .opacity-73 rect {
+    opacity: 0.73; }
+  .wsj-digital .opacity-74 path,
+  .wsj-digital .opacity-74 rect {
+    opacity: 0.74; }
+  .wsj-digital .opacity-75 path,
+  .wsj-digital .opacity-75 rect {
+    opacity: 0.75; }
+  .wsj-digital .opacity-76 path,
+  .wsj-digital .opacity-76 rect {
+    opacity: 0.76; }
+  .wsj-digital .opacity-77 path,
+  .wsj-digital .opacity-77 rect {
+    opacity: 0.77; }
+  .wsj-digital .opacity-78 path,
+  .wsj-digital .opacity-78 rect {
+    opacity: 0.78; }
+  .wsj-digital .opacity-79 path,
+  .wsj-digital .opacity-79 rect {
+    opacity: 0.79; }
+  .wsj-digital .opacity-80 path,
+  .wsj-digital .opacity-80 rect {
+    opacity: 0.8; }
+  .wsj-digital .opacity-81 path,
+  .wsj-digital .opacity-81 rect {
+    opacity: 0.81; }
+  .wsj-digital .opacity-82 path,
+  .wsj-digital .opacity-82 rect {
+    opacity: 0.82; }
+  .wsj-digital .opacity-83 path,
+  .wsj-digital .opacity-83 rect {
+    opacity: 0.83; }
+  .wsj-digital .opacity-84 path,
+  .wsj-digital .opacity-84 rect {
+    opacity: 0.84; }
+  .wsj-digital .opacity-85 path,
+  .wsj-digital .opacity-85 rect {
+    opacity: 0.85; }
+  .wsj-digital .opacity-86 path,
+  .wsj-digital .opacity-86 rect {
+    opacity: 0.86; }
+  .wsj-digital .opacity-87 path,
+  .wsj-digital .opacity-87 rect {
+    opacity: 0.87; }
+  .wsj-digital .opacity-88 path,
+  .wsj-digital .opacity-88 rect {
+    opacity: 0.88; }
+  .wsj-digital .opacity-89 path,
+  .wsj-digital .opacity-89 rect {
+    opacity: 0.89; }
+  .wsj-digital .opacity-90 path,
+  .wsj-digital .opacity-90 rect {
+    opacity: 0.9; }
+  .wsj-digital .opacity-91 path,
+  .wsj-digital .opacity-91 rect {
+    opacity: 0.91; }
+  .wsj-digital .opacity-92 path,
+  .wsj-digital .opacity-92 rect {
+    opacity: 0.92; }
+  .wsj-digital .opacity-93 path,
+  .wsj-digital .opacity-93 rect {
+    opacity: 0.93; }
+  .wsj-digital .opacity-94 path,
+  .wsj-digital .opacity-94 rect {
+    opacity: 0.94; }
+  .wsj-digital .opacity-95 path,
+  .wsj-digital .opacity-95 rect {
+    opacity: 0.95; }
+  .wsj-digital .opacity-96 path,
+  .wsj-digital .opacity-96 rect {
+    opacity: 0.96; }
+  .wsj-digital .opacity-97 path,
+  .wsj-digital .opacity-97 rect {
+    opacity: 0.97; }
+  .wsj-digital .opacity-98 path,
+  .wsj-digital .opacity-98 rect {
+    opacity: 0.98; }
+  .wsj-digital .opacity-99 path,
+  .wsj-digital .opacity-99 rect {
+    opacity: 0.99; }
+  .wsj-digital .opacity-100 path,
+  .wsj-digital .opacity-100 rect {
+    opacity: 1; }
+  .wsj-digital .highcharts-graph {
+    stroke-width: 2px;
+    stroke-linecap: square;
+    stroke-linejoin: bevel; }
+  .wsj-digital .highcharts-line-series.highcharts-series.dotted .highcharts-graph {
+    stroke-linecap: round;
+    stroke-dasharray: 0.1 5; }
+  .wsj-digital .highcharts-line-series.highcharts-series .highcharts-graph.dotted {
+    stroke-linecap: round;
+    stroke-dasharray: 0.1 5; }
+  .wsj-digital .highcharts-area-series .highcharts-graph {
+    stroke-linecap: square;
+    stroke-linejoin: bevel; }
+  .wsj-digital .highcharts-area-series.stacked .highcharts-graph {
+    stroke: #fff;
+    stroke-width: 1px; }
+  .wsj-digital .stacked rect.highcharts-point {
+    stroke-width: 1px;
+    stroke: #fff; }
+  .wsj-digital .highcharts-dense-data.stacked rect.highcharts-point {
+    stroke-width: 0; }
+  .wsj-digital .highcharts-legend-item text {
+    fill: #333333;
+    stroke-width: 0;
+    font-family: "Retina", sans-serif;
+    font-weight: 300;
+    font-size: 15px; }
+  .wsj-digital .highcharts-legend-item .highcharts-graph {
+    stroke-width: 10;
+    stroke-linecap: butt; }
+  .wsj-digital .highcharts-axis-labels {
+    fill: #333333;
+    font-size: 13px;
+    font-family: "Retina Narrow";
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    white-space: normal; }
+  .wsj-digital :where(.bar-xaxis, .column-xaxis) text {
+    font-family: "Retina", sans-serif;
+    font-weight: 300;
+    font-size: 15px; }
+  .wsj-digital .highcharts-axis-title {
+    font-family: "Retina Narrow";
+    font-size: 13px;
+    font-weight: 300;
+    color: #333333;
+    fill: #333333; }
+  .wsj-digital .highcharts-data-label text {
+    font-family: "Retina", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    text-shadow: none;
+    color: #333333; }
+  .wsj-digital .highcharts-column-series .highcharts-data-label text {
+    font-family: "Retina", sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    fill: #666666; }
+  .wsj-digital .highcharts-plot-band {
+    fill: #edeeef;
+    fill-opacity: 1; }
+  .wsj-digital .label-recession {
+    font-family: "Retina Narrow";
+    font-size: 13px;
+    font-weight: 300;
+    color: #666666;
+    fill: #666666; }
+  .wsj-digital .highcharts-yaxis-grid .highcharts-grid-line {
+    stroke-width: 1px;
+    stroke: #e6e6e6; }
+  .wsj-digital .zero-line {
+    stroke: #333333; }
+  .wsj-digital .bar-yaxis .highcharts-grid-line {
+    stroke-width: 0; }
+  .wsj-digital .scatter .highcharts-grid-line {
+    stroke-width: 1px;
+    stroke: #e6e6e6; }
+  .wsj-digital .highcharts-xaxis :is(.highcharts-minor-grid-line, .highcharts-axis-line) {
+    stroke-width: 0; }
+  .wsj-digital .highcharts-xaxis .highcharts-tick {
+    stroke: #333333; }
+  .wsj-digital .scatter .highcharts-tick {
+    stroke-width: 0; }
+  .wsj-digital .highcharts-tooltip {
+    filter: none; }
+  .wsj-digital .highcharts-tooltip-box {
+    stroke: #ccc;
+    fill: #f7f7f7;
+    fill-opacity: 0.85; }
+  .wsj-digital .highcharts-tooltip text {
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "Retina", sans-serif;
+    white-space: normal;
+    overflow: auto; }
+  .wsj-digital .highcharts-plot-line.horizontal-annotation-0 {
+    stroke: #333333;
+    stroke-width: 1;
+    shape-rendering: crispEdges; }
+  .wsj-digital .highcharts-plot-line.horizontal-annotation-1 {
+    stroke: #bebebe;
+    stroke-width: 1;
+    shape-rendering: crispEdges; }
+  .wsj-digital .highcharts-plot-line {
+    stroke-width: 1px;
+    stroke: #323232;
+    shape-rendering: crispEdges; }
+  .wsj-digital .highcharts-plot-line-label {
+    font-family: "Retina Narrow";
+    font-weight: 300;
+    font-size: 13px;
+    color: #323232;
+    fill: #323232; }
+  .wsj-digital .highcharts-plot-line.dotted {
+    stroke-width: 2.5;
+    stroke-dasharray: 0.1, 5;
+    stroke-linecap: round; }
+  .wsj-digital .highcharts-annotation-label text {
+    font-family: "Retina", sans-serif;
+    fill: #333333;
+    font-size: 15px;
+    font-weight: 300; }
+  .wsj-digital .annotations-circle {
+    fill: rgba(0, 0, 0, 0);
+    stroke-width: 1px;
+    stroke: #333333; }
+  .wsj-digital .annotations-dot {
+    fill: #333333; }
+  .wsj-digital defs #shape-custom-arrow-digital path {
+    fill: #333333; }
+  .wsj-digital .custom-annotations-arrow {
+    fill: #333333; }
+  .wsj-digital .highcharts-strong {
+    font-weight: 800; }
