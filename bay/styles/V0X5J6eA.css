@@ -363,8 +363,8 @@ ul.ab5.ab6 li:nth-child(8){
 color:#ef766e;color:#00aeff}
 ul.ab5.ab6 li:nth-child(9){
 color:#8e65bf;color:#00c888}
-ul.ab5.ab6 li:nth-child(10){
-color:var(--title);display:none}
+ul.ab5.ab6 li:nth-of-type(n+10){
+color:#a1a1a6;display:none}
 .ah8.tiny{filter:invert(1);filter:grayscale(10%) saturate(80%) contrast(80%)}
 .ah0 em{font-style:italic}
 .ah0 a{transition-property:box-shadow;transition-duration:.15s;padding-bottom:.1em}
