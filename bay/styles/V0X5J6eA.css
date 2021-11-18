@@ -658,16 +658,6 @@ path#tg2 {
 .bn1 svg {
     width: 70px;
 }
-#post-15165 h3,
-#post-15166 h3,
-#post-15170 h3,
-#post-15167 h3,
-#post-15172 h3,
-#post-15168 h3,
-#post-15169 h3,
-#post-15150 h3,
-#post-14914 h3,
-#post-14383 h3,
-#post-17670 h3{
-    font-family: Neist-Context-latin,'Ugq7iLnE';
+.season h3 {
+    font-family: Neist-Context-latin,'Ugq7iLnE' !important;
 }
