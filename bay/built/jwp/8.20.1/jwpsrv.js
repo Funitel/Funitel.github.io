@@ -1,10 +1,10 @@
 !function() {
-    var x = 4
-      , j = {
+    var k = 4
+      , h = {
         pro: 1,
         premium: 2,
         ads: 3,
-        invalid: x,
+        invalid: k,
         enterprise: 6,
         trial: 7,
         platinum: 8,
@@ -12,19 +12,19 @@
         business: 10,
         developer: 11
     }
-      , B = {
+      , w = {
         viewable: 2
     }
       , e = "DATA_EVENT_PLAY"
       , a = "DATA_EVENT_META"
       , t = "DATA_EVENT_LEVELS"
       , n = "DATA_EVENT_FIRST_FRAME"
-      , y = 128
+      , s = 128
       , r = ["auto", "initial choice"]
-      , o = ["playlistItem", "playAttempt", "time", "adBreakEnd"]
-      , R = 0
-      , b = 20;
-    var M = Object.assign || function(e) {
+      , i = ["playlistItem", "playAttempt", "time", "adBreakEnd"]
+      , D = 0
+      , p = 20;
+    var S = Object.assign || function(e) {
         for (var a = arguments.length, t = Array(1 < a ? a - 1 : 0), n = 1; n < a; n++)
             t[n - 1] = arguments[n];
         return t.reduce(function(e, a) {
@@ -37,20 +37,19 @@
         }, e)
     }
     ;
-    function i() {
-        try {
-            var e = window.crypto || window.msCrypto;
-            if (e && e.getRandomValues)
-                return e.getRandomValues(new Uint32Array(1))[0].toString(36)
-        } catch (e) {}
-        return Math.random().toString(36).slice(2, 9)
-    }
-    function V(e) {
+    function I(e) {
         for (var a = ""; a.length < e; )
-            a += i();
+            a += function() {
+                try {
+                    var e = window.crypto || window.msCrypto;
+                    if (e && e.getRandomValues)
+                        return e.getRandomValues(new Uint32Array(1))[0].toString(36)
+                } catch (e) {}
+                return Math.random().toString(36).slice(2, 9)
+            }();
         return a.slice(0, e)
     }
-    function L(e) {
+    function T(e) {
         if (e) {
             if (/vast/.test(e))
                 return 0;
@@ -63,55 +62,44 @@
         }
         return -1
     }
-    function d(e) {
+    function o(e) {
         return /^[a-zA-Z0-9]{8}$/.test(e)
     }
-    function l(e) {
-        var a = !(1 < arguments.length && void 0 !== arguments[1]) || arguments[1];
+    function d(e, a) {
         if ("number" != typeof e)
             return null;
-        var t = e / 1e3;
-        return a ? Math.round(t) : t
+        e /= 1e3;
+        return !(1 < arguments.length && void 0 !== a) || a ? Math.round(e) : e
     }
-    function u(e, a) {
+    function f(e, a) {
         return e + "-" + a
     }
-    function p(e, a) {
+    function c(e, a) {
         return a.split(".").reduce(function(e, a) {
             return e ? e[a] : void 0
         }, e)
     }
-    function c(e) {
-        var a = {};
-        for (var t in e)
-            if ("object" == typeof e[t]) {
-                var n = c(e[t]);
-                for (var r in n)
-                    n.hasOwnProperty(r) && (a[t + "." + r] = n[r])
+    function l(e) {
+        var a, t = {};
+        for (a in e)
+            if ("object" == typeof e[a]) {
+                var n, r = l(e[a]);
+                for (n in r)
+                    r.hasOwnProperty(n) && (t[a + "." + n] = r[n])
             } else
-                a[t] = e[t];
-        return a
+                t[a] = e[a];
+        return t
     }
-    function s(e) {
+    function m(e) {
         if (e)
             return e.version
     }
-    function A(e) {
-        for (var a = e.length, t = 0; t < e.length; t++) {
-            var n = e.charCodeAt(t)
-              , r = n;
-            55296 <= n && n <= 56319 && t < e.length - 1 && (r = 1024 * (n - 55296) + e.charCodeAt(t + 1) - 56320 + 65536,
-            t++),
-            128 <= r && r <= 2047 ? a += 1 : 2048 <= r && r <= 65535 ? a += 2 : 65536 <= r && r <= 1114111 && (a += 2)
-        }
-        return a
-    }
-    var f = a;
-    function h(e) {
+    var u = a;
+    function g(e) {
         var a = e.getContainer().querySelector("video");
         return a && a.currentTime ? a.currentTime : e.getPosition()
     }
-    function m(a) {
+    function v(a) {
         try {
             return a.getPlaylistItem()
         } catch (e) {
@@ -119,98 +107,91 @@
             return a.getConfig().playlist[t] || null
         }
     }
-    function v(e) {
+    function y(e) {
         if ("function" != typeof e.getProvider)
             return "";
-        var a = e.getProvider();
-        return a ? a.name : ""
+        e = e.getProvider();
+        return e ? e.name : ""
     }
-    var k = void 0;
-    function O(e) {
-        var a = 1 < arguments.length && void 0 !== arguments[1] && arguments[1]
-          , t = e.getVisualQuality()
-          , n = void 0;
-        if (t && t.level) {
-            var r = "string" == typeof t.mode ? "auto" === t.mode : null;
-            n = {
-                width: t.level.width,
-                height: t.level.height,
-                bitrate: l(t.level.bitrate),
-                reason: t.reason,
-                adaptiveBitrateMode: r
-            }
-        } else
-            n = {
-                width: null,
-                height: null,
-                bitrate: null,
-                reason: null,
-                adaptiveBitrateMode: null
-            };
-        return k && !a || (k = n),
-        n
+    var b = void 0;
+    function P(e, a) {
+        var t = 1 < arguments.length && void 0 !== a && a
+          , n = e.getVisualQuality()
+          , a = void 0;
+        return a = n && n.level ? (e = "string" == typeof n.mode ? "auto" === n.mode : null,
+        {
+            width: n.level.width,
+            height: n.level.height,
+            bitrate: d(n.level.bitrate),
+            reason: n.reason,
+            adaptiveBitrateMode: e
+        }) : {
+            width: null,
+            height: null,
+            bitrate: null,
+            reason: null,
+            adaptiveBitrateMode: null
+        },
+        b && !t || (b = a),
+        a
     }
-    function D(e) {
+    function E(e) {
         var a = e.external.playerAPI
-          , t = e.meta.playbackEvents
-          , n = a.getDuration();
-        if (n <= 0) {
-            var r = t[f];
-            r && (n = r.duration)
-        }
-        return 0 | n
+          , e = e.meta.playbackEvents
+          , a = a.getDuration();
+        return a <= 0 && ((e = e[u]) && (a = e.duration)),
+        0 | a
     }
-    function g(e, a) {
-        var t = e.playerData.startup;
-        null === t.startupTime && null !== t.initialTime && (t.startupTime = 10 * Math.round((Date.now() - t.initialTime) / 10),
-        t.dispatchEvent = a)
+    function C(e, a) {
+        e = e.playerData.startup;
+        null === e.startupTime && null !== e.initialTime && (e.startupTime = 10 * Math.round((Date.now() - e.initialTime) / 10),
+        e.dispatchEvent = a)
     }
-    function G(e) {
+    function A(e) {
         var a = e.getConfig().setupConfig;
         if (a) {
-            var i, o, d, l, t = window.jwplayer.defaults, n = M({}, t, a);
-            return delete n.advertising,
-            JSON.stringify(n, (i = n,
+            var r, i, o, d, e = window.jwplayer.defaults, a = S({}, e, a);
+            return delete a.advertising,
+            JSON.stringify(a, (r = a,
+            i = [],
             o = [],
-            d = [],
-            l = 0,
+            d = 0,
             function(e, a) {
                 if ("object" != typeof a)
                     return "function" == typeof a ? "__FUNCTION__" : a;
                 if (null === a || a instanceof Date || a instanceof RegExp)
                     return a;
                 if (Uint8Array && a instanceof Uint8Array) {
-                    var t = "" + a;
-                    return t = 40 < t.length ? t.substr(0, 40) : t,
-                    "Uint8Array(" + a.length + ") [" + t + "]"
+                    var t = 40 < (t = "" + a).length ? t.substr(0, 40) : t;
+                    return "Uint8Array(" + a.length + ") [" + t + "]"
                 }
                 if (Array.isArray(a) && 100 < a.length)
                     return "Array(" + a.length + ")";
-                if (a === i && 0 < l)
+                if (a === r && 0 < d)
                     return "<parent object>";
-                var n = o.indexOf(a);
+                var n = i.indexOf(a);
                 if (-1 !== n) {
-                    var r = d[n];
-                    if (r)
-                        return r;
+                    t = o[n];
+                    if (t)
+                        return t;
                     try {
                         JSON.stringify(a)
                     } catch (e) {
-                        return d[n] = "__CIRCULAR__"
+                        return o[n] = "__CIRCULAR__"
                     }
-                    d[n] = a
+                    o[n] = a
                 }
-                return 1e4 < l++ ? "<complexity exceeded>" : (o.push(a),
+                return 1e4 < d++ ? "<complexity exceeded>" : (i.push(a),
                 a)
             }
             ))
         }
     }
-    var w = {
+    var x = {
         UNKNOWN: 999,
         IAB: 0
     }
-      , S = {
+      , j = {
         noBid: 0,
         bid: 1,
         timeout: 2,
@@ -218,7 +199,7 @@
         abort: 4,
         error: 5
     }
-      , q = {
+      , B = {
         numCompanions: -1,
         podCount: 0,
         podIndex: 0,
@@ -246,13 +227,13 @@
         advertiser: null,
         advertiserId: null
     }
-      , I = {
+      , R = {
         consecutiveVisibleSeconds: 0,
         maxConsecutiveVisibleSeconds: 0,
         totalVisibleSeconds: 0
     }
-      , T = /^IAB(\d+(?:-\d+)?)$/
-      , P = {
+      , M = /^IAB(\d+(?:-\d+)?)$/
+      , V = {
         adRequest: "ar",
         adImpression: "i",
         adSkipped: "s",
@@ -263,42 +244,43 @@
         adViewableImpression: "vi",
         adBidRequest: "abq"
     }
-      , E = ["adStarted", "adMeta"]
-      , C = ["adTime", "adClick"]
-      , N = ["adBreakStart", "adMeta", "adImpression", "adViewableImpression", "adPlay", "adPause", "adTime", "adCompanions", "adClick", "adSkipped", "adComplete", "adError"]
-      , F = {
+      , L = ["adStarted", "adMeta"]
+      , G = ["adTime", "adClick"]
+      , O = ["adBreakStart", "adMeta", "adImpression", "adViewableImpression", "adPlay", "adPause", "adTime", "adCompanions", "adClick", "adSkipped", "adComplete", "adError"]
+      , N = {
         dfp: 0,
         jwp: 1,
         jwpdfp: 2,
         jwpspotx: 3
     }
-      , U = ["id", "type", "pubid", "result", "code", "winner", "priceInCents", "grossPriceInCents", "timeForBidResponse", "requestId", "cacheKey", "dealId"]
-      , _ = /[?&]iu=([^&]+)/
-      , Q = "error"
-      , z = "s"
-      , K = "ana"
-      , W = "t"
-      , H = "prp"
-      , $ = "vsh"
-      , J = "paf"
-      , X = "bs"
-      , Y = "fs"
-      , Z = "fc"
-      , ee = "aa"
-      , ae = "gab"
-      , te = "xapi"
-      , ne = "cpt"
-      , re = "ph"
-      , ie = "n"
-      , oe = "e"
-      , de = "i"
-      , le = "as"
-      , ue = "ar"
+      , F = ["id", "type", "pubid", "result", "code", "winner", "priceInCents", "grossPriceInCents", "timeForBidResponse", "requestId", "cacheKey", "dealId"]
+      , q = /[?&]iu=([^&]+)/
+      , U = "error"
+      , Q = "s"
+      , _ = "ana"
+      , z = "t"
+      , K = "prp"
+      , W = "vsh"
+      , H = "paf"
+      , $ = "bs"
+      , J = "fs"
+      , X = "fc"
+      , Y = "aa"
+      , Z = "gab"
+      , ee = "xapi"
+      , ae = "cpt"
+      , te = "ph"
+      , ne = "n"
+      , re = "e"
+      , ie = "sa"
+      , oe = "i"
+      , de = "as"
+      , le = "ar"
       , ce = "avp"
-      , se = "avg"
-      , pe = "ers"
-      , fe = "err"
-      , me = {
+      , ue = "avg"
+      , se = "ers"
+      , pe = "err"
+      , fe = {
         events: {
             "aa-jwplayer6": {
                 code: "aa",
@@ -319,7 +301,7 @@
                 code: "abq",
                 bucket: "clienta",
                 parameterGroups: ["global", "adGlobal", "headerBidding"],
-                pingSpecificParameters: ["apr", "bpv", "ipv", "rtp", "tpi", "vsrid"],
+                pingSpecificParameters: ["apr", "bpv", "ipv", "rtp", "tpi"],
                 pingDestination: "main"
             },
             "ae-clienta": {
@@ -348,7 +330,7 @@
                 code: "ar",
                 bucket: "clienta",
                 parameterGroups: ["global", "adGlobal"],
-                pingSpecificParameters: ["apr", "apt", "ipv", "rtp", "tpi", "vsrid"],
+                pingSpecificParameters: ["apr", "apt", "ipv", "rtp", "tpi"],
                 pingDestination: "main"
             },
             "avg-clienta": {
@@ -402,7 +384,7 @@
                 code: "e",
                 bucket: "jwplayer6",
                 parameterGroups: ["global"],
-                pingSpecificParameters: ["ab", "bpv", "cae", "cb", "cdid", "cme", "dd", "dnt", "dpl", "fed", "flc", "fv", "ga", "ipv", "lng", "mk", "mu", "opu", "pad", "pbc", "pd", "pdr", "plng", "plt", "pni", "po", "pogt", "ptid", "pvt", "rf", "sn", "sp", "srf", "st", "vrt"],
+                pingSpecificParameters: ["ab", "bpv", "cae", "cb", "cdid", "cme", "dd", "dnt", "dpl", "flc", "fv", "ga", "ipv", "lng", "mk", "mu", "opu", "pad", "pbc", "pd", "pdr", "plng", "plt", "pni", "po", "pogt", "ptid", "pvt", "rf", "sn", "sp", "srf", "st", "vrt"],
                 filters: ["missingMediaOrExternalID"],
                 pingDestination: "main"
             },
@@ -594,80 +576,9 @@
                 members: ["afbb", "afbi", "afbp", "afbt", "afbw", "aml", "asxb", "asxi", "asxp", "asxt", "asxw", "flpc", "flpy", "frid", "hbec", "vpb", "vto"],
                 groupName: "headerBidding"
             }
-        },
-        parameters: {
-            ad: {
-                priority: 1
-            },
-            add: {
-                priority: 2
-            },
-            adid: {
-                priority: 1
-            },
-            adt: {
-                priority: 1
-            },
-            adv: {
-                priority: 1
-            },
-            advi: {
-                priority: 1
-            },
-            aem: {
-                priority: 1
-            },
-            amu: {
-                priority: 2
-            },
-            atu: {
-                priority: 1
-            },
-            caid: {
-                priority: 1
-            },
-            cdid: {
-                priority: 1
-            },
-            cid: {
-                priority: 1
-            },
-            mu: {
-                priority: 1
-            },
-            opu: {
-                priority: 1
-            },
-            pt: {
-                priority: 1
-            },
-            pu: {
-                priority: 1
-            },
-            rf: {
-                priority: 1
-            },
-            srf: {
-                priority: 1
-            },
-            t: {
-                priority: 1
-            },
-            tpi: {
-                priority: 1
-            },
-            tul: {
-                priority: 1
-            },
-            uav: {
-                priority: 1
-            },
-            vu: {
-                priority: 2
-            }
         }
     }
-      , ve = {
+      , me = {
         sgB1CN8sEeW9HgpVuA4vVw: !1,
         "QHh6WglVEeWjwQp+lcGdIw": !0,
         "4lTGrhE9EeWepAp+lcGdIw": !0,
@@ -676,74 +587,68 @@
         KvvTdq_lEeSqTw4AfQhyIQ: !1
     }
       , ge = 1;
-    function ye(e, a) {
-        var t, n, r, i, o, d, l, u;
-        for (t = 3 & e.length,
-        n = e.length - t,
-        r = a,
-        o = 3432918353,
-        d = 461845907,
-        u = 0; u < n; )
-            l = 255 & e.charCodeAt(u) | (255 & e.charCodeAt(++u)) << 8 | (255 & e.charCodeAt(++u)) << 16 | (255 & e.charCodeAt(++u)) << 24,
-            ++u,
-            r = 27492 + (65535 & (i = 5 * (65535 & (r = (r ^= l = (65535 & (l = (l = (65535 & l) * o + (((l >>> 16) * o & 65535) << 16) & 4294967295) << 15 | l >>> 17)) * d + (((l >>> 16) * d & 65535) << 16) & 4294967295) << 13 | r >>> 19)) + ((5 * (r >>> 16) & 65535) << 16) & 4294967295)) + ((58964 + (i >>> 16) & 65535) << 16);
-        switch (l = 0,
-        t) {
+    function ve(e, a) {
+        for (var t, n, r = 3 & e.length, i = e.length - r, o = a, d = 3432918353, l = 461845907, c = 0; c < i; )
+            n = 255 & e.charCodeAt(c) | (255 & e.charCodeAt(++c)) << 8 | (255 & e.charCodeAt(++c)) << 16 | (255 & e.charCodeAt(++c)) << 24,
+            ++c,
+            o = 27492 + (65535 & (t = 5 * (65535 & (o = (o ^= n = (65535 & (n = (n = (65535 & n) * d + (((n >>> 16) * d & 65535) << 16) & 4294967295) << 15 | n >>> 17)) * l + (((n >>> 16) * l & 65535) << 16) & 4294967295) << 13 | o >>> 19)) + ((5 * (o >>> 16) & 65535) << 16) & 4294967295)) + ((58964 + (t >>> 16) & 65535) << 16);
+        switch (n = 0,
+        r) {
         case 3:
-            l ^= (255 & e.charCodeAt(u + 2)) << 16;
+            n ^= (255 & e.charCodeAt(c + 2)) << 16;
         case 2:
-            l ^= (255 & e.charCodeAt(u + 1)) << 8;
+            n ^= (255 & e.charCodeAt(c + 1)) << 8;
         case 1:
-            r ^= l = (65535 & (l = (l = (65535 & (l ^= 255 & e.charCodeAt(u))) * o + (((l >>> 16) * o & 65535) << 16) & 4294967295) << 15 | l >>> 17)) * d + (((l >>> 16) * d & 65535) << 16) & 4294967295
+            o ^= n = (65535 & (n = (n = (65535 & (n ^= 255 & e.charCodeAt(c))) * d + (((n >>> 16) * d & 65535) << 16) & 4294967295) << 15 | n >>> 17)) * l + (((n >>> 16) * l & 65535) << 16) & 4294967295
         }
-        return r ^= e.length,
-        r = 2246822507 * (65535 & (r ^= r >>> 16)) + ((2246822507 * (r >>> 16) & 65535) << 16) & 4294967295,
-        r = 3266489909 * (65535 & (r ^= r >>> 13)) + ((3266489909 * (r >>> 16) & 65535) << 16) & 4294967295,
-        (r ^= r >>> 16) >>> 0
+        return o ^= e.length,
+        o = 2246822507 * (65535 & (o ^= o >>> 16)) + ((2246822507 * (o >>> 16) & 65535) << 16) & 4294967295,
+        o = 3266489909 * (65535 & (o ^= o >>> 13)) + ((3266489909 * (o >>> 16) & 65535) << 16) & 4294967295,
+        (o ^= o >>> 16) >>> 0
+    }
+    function ye(e) {
+        return he(e, "feedid")
     }
     function be(e) {
-        return De(e, "feedid")
-    }
-    function he(e) {
-        return De(e, "feed_instance_id")
+        return he(e, "feed_instance_id")
     }
     function ke(e) {
         return e ? e.pin_set_id : null
     }
-    function De(e, a) {
+    function he(e, a) {
         return e ? (e.feedData || {})[a] || e[a] : null
     }
     function we(e) {
         if (!e)
             return null;
-        var a, t, n = e.mediaid;
-        return d(n) ? n : (a = e.file,
-        d(n = (t = /.*\/(?:manifests|videos)\/([a-zA-Z0-9]{8})[\.-].*/.exec(a)) && 2 === t.length ? t[1] : null) ? n : null)
+        var a = e.mediaid;
+        return o(a) ? a : (e = e.file,
+        o(a = (e = /.*\/(?:manifests|videos)\/([a-zA-Z0-9]{8})[\.-].*/.exec(e)) && 2 === e.length ? e[1] : null) ? a : null)
     }
-    function Se(e) {
+    function De(e) {
         return e ? e.title : null
     }
-    function Ie(e) {
+    function Se(e) {
         return e ? !(!e.images || !e.images.length) && !!e.images.filter(function(e) {
             return e.type && e.type.match(/video/)
         }).length : null
     }
-    function Te(e, a) {
+    function Ie(e, a) {
         var t = void 0;
-        ve[e.accountData.analyticsID] && (t = function(e, a) {
-            var t = Se(a);
-            if (t)
+        me[e.accountData.analyticsID] && (t = function(e, a) {
+            a = De(a);
+            if (a)
                 return function(e, a) {
                     e.meta.xidAlgorithmVersion = 1;
-                    var t = ye(a, ge)
-                      , n = ye(a + a, ge);
-                    return "01_" + t + n
-                }(e, t)
+                    e = ve(a, ge),
+                    a = ve(a + a, ge);
+                    return "01_" + e + a
+                }(e, a)
         }(e, a));
-        var n = t || a.externalId;
-        (e.playlistItemData.externalId = n) && !e.meta.xidAlgorithmVersion && (e.meta.xidAlgorithmVersion = 0)
+        a = t || a.externalId;
+        (e.playlistItemData.externalId = a) && !e.meta.xidAlgorithmVersion && (e.meta.xidAlgorithmVersion = 0)
     }
-    var Pe = "hidden"in document ? function() {
+    var Te = "hidden"in document ? function() {
         return !document.hidden
     }
     : "webkitHidden"in document ? function() {
@@ -753,18 +658,18 @@
         return !0
     }
     ;
-    function Ee(e, a) {
-        var t = " " + a + " ";
-        return 1 === e.nodeType && 0 <= (" " + e.className + " ").replace(/[\t\r\n\f]/g, " ").indexOf(t)
+    function Pe(e, a) {
+        a = " " + a + " ";
+        return 1 === e.nodeType && 0 <= (" " + e.className + " ").replace(/[\t\r\n\f]/g, " ").indexOf(a)
     }
-    var Ce = 1
-      , Ae = 2
-      , xe = 3
-      , je = 4
-      , Be = 5
-      , Re = 0;
-    var Me = [X, ae];
-    function Ve(e, a, t) {
+    var Ee = 1
+      , Ce = 2
+      , Ae = 3
+      , xe = 4
+      , je = 5
+      , Be = 0;
+    var Re = [$, Z];
+    function Me(e, a, t) {
         var n = e.external.playerAPI
           , r = n.getConfig();
         e.playerData.playerConfig = {
@@ -772,59 +677,54 @@
             bandwidthEstimate: r.bandwidthEstimate,
             floatingState: !!r.isFloating
         };
-        var i, o, d, l = m(n) || {};
-        e.playlistItemData.item = l,
-        e.playlistItemData.mediaId = we(l),
-        e.playerData.playerSize = function(e) {
-            var a = e.getConfig()
-              , t = a.containerWidth || e.getWidth()
-              , n = a.containerHeight || e.getHeight();
-            if (/\d+%/.test(t)) {
-                var r = e.utils.bounds(e.getContainer());
-                t = r.width,
-                n = r.height
-            }
-            return t = 0 | Math.round(t),
-            n = 0 | Math.round(n),
-            /\d+%/.test(a.width || t) && a.aspectratio ? {
-                bucket: je,
-                width: t,
-                height: n
-            } : Ee(e.getContainer(), "jw-flag-audio-player") ? {
-                bucket: Be,
-                width: t,
-                height: n
-            } : 0 === t ? {
-                bucket: Re,
-                width: t,
-                height: n
-            } : t <= 320 ? {
-                bucket: Ce,
-                width: t,
-                height: n
-            } : t <= 640 ? {
-                bucket: Ae,
-                width: t,
-                height: n
-            } : {
-                bucket: xe,
-                width: t,
-                height: n
-            }
-        }(n),
-        e.playlistItemData.duration = D(e),
+        var i, o, d, l, c, u = v(n) || {};
+        e.playlistItemData.item = u,
+        e.playlistItemData.mediaId = we(u),
+        e.playerData.playerSize = (d = (i = n).getConfig(),
+        l = d.containerWidth || i.getWidth(),
+        c = d.containerHeight || i.getHeight(),
+        /\d+%/.test(l) && (l = (o = i.utils.bounds(i.getContainer())).width,
+        c = o.height),
+        l = 0 | Math.round(l),
+        c = 0 | Math.round(c),
+        /\d+%/.test(d.width || l) && d.aspectratio ? {
+            bucket: xe,
+            width: l,
+            height: c
+        } : Pe(i.getContainer(), "jw-flag-audio-player") ? {
+            bucket: je,
+            width: l,
+            height: c
+        } : 0 === l ? {
+            bucket: Be,
+            width: l,
+            height: c
+        } : l <= 320 ? {
+            bucket: Ee,
+            width: l,
+            height: c
+        } : l <= 640 ? {
+            bucket: Ce,
+            width: l,
+            height: c
+        } : {
+            bucket: Ae,
+            width: l,
+            height: c
+        }),
+        e.playlistItemData.duration = E(e),
         e.meta.lastEvent = a,
         e.meta.lastBucket = t,
-        e.playerData.visualQuality = O(n, "s" === a && "jwplayer6" === t),
+        e.playerData.visualQuality = P(n, "s" === a && "jwplayer6" === t),
         e.playerData.defaultPlaybackRate = r.defaultPlaybackRate,
         e.playerData.playbackMode = r.streamType,
-        Te(e, l),
-        i = e,
-        o = a,
-        d = t,
-        -1 === Me.indexOf(o) && (i.meta.eventPreAbandonment = u(o, d))
+        Ie(e, u),
+        e = e,
+        a = a,
+        t = t,
+        -1 === Re.indexOf(a) && (e.meta.eventPreAbandonment = f(a, t))
     }
-    var Le = {
+    var Ve = {
         prs: function(e) {
             return e.meta.playerState
         },
@@ -835,11 +735,11 @@
             return e.meta.playerRemoved
         },
         prsd: function(e) {
-            var a = Date.now() - e.meta.playerStateDuration;
-            return a <= 216e5 ? a : -1
+            e = Date.now() - e.meta.playerStateDuration;
+            return e <= 216e5 ? e : -1
         }
     }
-      , Oe = {
+      , Le = {
         ab: function(e) {
             return e.configData.advertisingBlockType
         },
@@ -883,14 +783,14 @@
         },
         adc: function(e) {
             var a = e.ads.adEventData
-              , t = null;
-            return Array.isArray(a.categories) && (t = a.categories.map(function(e) {
-                var a = e.match(T);
-                return a ? [w.IAB, a[1]].join("-") : w.UNKNOWN
+              , e = null;
+            return Array.isArray(a.categories) && (e = a.categories.map(function(e) {
+                e = e.match(M);
+                return e ? [x.IAB, e[1]].join("-") : x.UNKNOWN
             }).filter(function(e, a, t) {
                 return t.indexOf(e) === a
             }).slice(0, 10).join(",") || null),
-            t
+            e
         },
         al: function(e) {
             return e.ads.adEventData.linear
@@ -951,12 +851,12 @@
             return e.playerData.lastErrorCode[e.meta.lastEvent]
         },
         atu: function(e) {
-            var a = e.ads.adEventData.tagURL;
-            return "string" == typeof a ? a.substr(0, 100) : void 0
+            e = e.ads.adEventData.tagURL;
+            return "string" == typeof e ? e.substr(0, 100) : void 0
         },
         tpi: function(e) {
-            var a = e.ads.adEventData.jwpseg;
-            return Array.isArray(a) ? a.join(",") : void 0
+            e = e.ads.adEventData.jwpseg;
+            return Array.isArray(e) ? e.join(",") : void 0
         },
         cid: function(e) {
             return e.ads.adEventData.creativeId
@@ -992,37 +892,37 @@
             return e.ads.adEventData.advertiserId
         },
         afbb: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "fan.result")
+            return c(e.ads.headerBiddingData.bidders, "fan.result")
         },
         afbi: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "fan.id")
+            return c(e.ads.headerBiddingData.bidders, "fan.id")
         },
         afbp: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "fan.priceInCents")
+            return c(e.ads.headerBiddingData.bidders, "fan.priceInCents")
         },
         afbt: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "fan.timeForBidResponse")
+            return c(e.ads.headerBiddingData.bidders, "fan.timeForBidResponse")
         },
         afbw: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "fan.winner")
+            return c(e.ads.headerBiddingData.bidders, "fan.winner")
         },
         frid: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "fan.requestId")
+            return c(e.ads.headerBiddingData.bidders, "fan.requestId")
         },
         asxb: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "spotx.result")
+            return c(e.ads.headerBiddingData.bidders, "spotx.result")
         },
         asxi: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "spotx.id")
+            return c(e.ads.headerBiddingData.bidders, "spotx.id")
         },
         asxp: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "spotx.priceInCents")
+            return c(e.ads.headerBiddingData.bidders, "spotx.priceInCents")
         },
         asxt: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "spotx.timeForBidResponse")
+            return c(e.ads.headerBiddingData.bidders, "spotx.timeForBidResponse")
         },
         asxw: function(e) {
-            return p(e.ads.headerBiddingData.bidders, "spotx.winner")
+            return c(e.ads.headerBiddingData.bidders, "spotx.winner")
         },
         aml: function(e) {
             return e.ads.headerBiddingData.mediationLayer
@@ -1041,7 +941,7 @@
         },
         vpb: function(e) {
             if ("object" == typeof e.ads.headerBiddingData.bidders)
-                return c(e.ads.headerBiddingData.bidders)
+                return JSON.stringify(l(e.ads.headerBiddingData.bidders))
         },
         vcb: function(e) {
             return e.ads.headerBiddingCacheData.bidder
@@ -1049,45 +949,23 @@
         vck: function(e) {
             return e.ads.headerBiddingCacheData.cacheKey
         },
-        rtp: function(n) {
-            if ("object" == typeof n.inference.result) {
-                var e = c(["predictions", "segments"].reduce(function(e, a) {
-                    var t = p(n.inference.result, a);
-                    return void 0 !== t && (e[a] = t),
-                    e
-                }, {}))
-                  , a = p(n.inference.result, "decisionThresholds");
-                return "object" == typeof a && (Object.keys(a).forEach(function(e) {
-                    var t = a[e] || {};
-                    Object.keys(t).forEach(function(a) {
-                        var e = t[a] || {};
-                        Object.keys(e).forEach(function(e) {
-                            t[a][e] = Number(t[a][e].toFixed(2))
-                        })
-                    }),
-                    a[e] = t
-                }),
-                e.decisionThresholds = a),
-                e
-            }
+        rtp: function(e) {
+            if ("object" == typeof e.inference.result)
+                return JSON.stringify(l(e.inference.result))
         },
         did: function(e) {
             return e.ads.adEventData.dealId
         },
         iu: function(e) {
-            var a = e.ads.adEventData.tagURL;
-            if (a) {
-                var t = a.match(_);
-                if (t)
-                    return t[1]
+            e = e.ads.adEventData.tagURL;
+            if (e) {
+                e = e.match(q);
+                if (e)
+                    return e[1]
             }
         }
-    };
-    Ge.vsrid = function(e) {
-        return (De(e.playlistItemData.item, "jwpseg") || {}).request_id || null
     }
-    ;
-    var qe = {
+      , Oe = {
         dnt: function(e) {
             return e.browser.storage.doNotTrackProperty
         },
@@ -1099,25 +977,21 @@
         },
         pdr: function(e) {
             return e.browser.docReferrer
-        }
-    };
-    qe.plt = function(e) {
-        return function() {
-            var e = (window.performance || {}).timing;
-            if (e) {
-                var a = (e.loadEventEnd || (new Date).getTime()) - e.navigationStart;
+        },
+        plt: function(e) {
+            var a = (window.performance || {}).timing;
+            if (a) {
+                a = (a.loadEventEnd || (new Date).getTime()) - a.navigationStart;
                 if (0 < a)
                     return 50 * Math.round(a / 50) | 0
             }
             return null
-        }()
+        },
+        sp: function(e) {
+            return e.browser.isPageStandalone
+        }
     }
-    ,
-    qe.sp = function(e) {
-        return e.browser.isPageStandalone
-    }
-    ;
-    var Ne = {
+      , Ne = {
         cb: function(e) {
             return e.configData.castingBlockPresent
         },
@@ -1143,13 +1017,13 @@
             return e.configData.skinName
         }
     }
-      , Fe = [ee, X, Z, Y]
-      , Ue = {
+      , Fe = [Y, $, X, J]
+      , qe = {
         fed: function(e) {
-            return -1 !== Fe.indexOf(e.meta.lastEvent) ? e.related.feedId : be(e.playlistItemData.item)
+            return -1 !== Fe.indexOf(e.meta.lastEvent) ? e.related.feedId : ye(e.playlistItemData.item)
         },
         fid: function(e) {
-            return -1 !== Fe.indexOf(e.meta.lastEvent) ? e.related.feedInstanceId : he(e.playlistItemData.item)
+            return -1 !== Fe.indexOf(e.meta.lastEvent) ? e.related.feedInstanceId : be(e.playlistItemData.item)
         },
         ft: function(e) {
             return e.related.feedType
@@ -1206,14 +1080,14 @@
             return e.browser.pageData.pageOGTitle
         }
     }
-      , _e = {};
-    _e.abc = function(e) {
-        var a = e.ads.adBreakTracking;
-        if (a)
-            return a.adBreakCount
+      , Ue = {};
+    Ue.abc = function(e) {
+        e = e.ads.adBreakTracking;
+        if (e)
+            return e.adBreakCount
     }
     ,
-    _e.abt = function(e) {
+    Ue.abt = function(e) {
         var a = e.external.playerAPI.getConfig()
           , t = a.ab;
         if (t && t.tests)
@@ -1224,68 +1098,67 @@
             }).join(",")
     }
     ,
-    _e.aid = function(e) {
+    Ue.aid = function(e) {
         return e.accountData.analyticsID
     }
     ,
-    _e.ask = function(e) {
+    Ue.ask = function(e) {
         return e.ads.adScheduleId
     }
     ,
-    _e.at = function(e) {
-        return Pe()
+    Ue.at = function(e) {
+        return Te()
     }
     ,
-    _e.c = function(e) {
+    Ue.c = function(e) {
         return e.ads.adClient
     }
     ,
-    _e.ccp = function(e) {
+    Ue.ccp = function(e) {
         return e.casting
     }
     ,
-    _e.cp = function(e) {
+    Ue.cp = function(e) {
         return !e.external.playerAPI.getControls()
     }
     ,
-    _e.d = function(e) {
+    Ue.d = function(e) {
         return e.configData.autostartConfig
     }
     ,
-    _e.eb = function(e) {
-        return (a = e.external.playerAPI).getAdBlock ? a.getAdBlock() : -1;
-        var a
+    Ue.eb = function(e) {
+        return (e = e.external.playerAPI).getAdBlock ? e.getAdBlock() : -1
     }
     ,
-    _e.ed = function(e) {
+    Ue.ed = function(e) {
         return e.accountData.edition
     }
     ,
-    _e.emi = function(e) {
+    Ue.emi = function(e) {
         return e.staticPlayerData.embedID
     }
     ,
-    _e.i = function(e) {
+    Ue.i = function(e) {
         return e.browser.pageData.inIframe
     }
     ,
-    _e.id = function(e) {
+    Ue.id = function(e) {
         return e.playlistItemData.mediaId
     }
     ,
-    _e.lid = function(e) {
+    Ue.lid = function(e) {
         return e.meta.doNotPingBackIDs ? void 0 : e.browser.storage.localID
     }
     ,
-    _e.lsa = function(e) {
+    Ue.lsa = function(e) {
         return e.browser.storage.storageAvailable
     }
     ,
-    _e.mt = function(e) {
+    Ue.mt = function(e) {
         return e.external.playerAPI.getMute()
     }
     ,
-    _e.mu = function(e) {
+    Ue.mu = function(e) {
         return function(e, a) {
             var t = void 0;
             if (!e)
@@ -1302,184 +1175,181 @@
         }(e.playlistItemData.item, e.external.utils)
     }
     ,
-    _e.pbd = function(e) {
+    Ue.pbd = function(e) {
         return e.playerData.defaultPlaybackRate
     }
     ,
-    _e.pbr = function(e) {
-        return (a = e.external.playerAPI).getPlaybackRate ? Math.round(100 * a.getPlaybackRate()) / 100 : 1;
-        var a
+    Ue.pbr = function(e) {
+        return (e = e.external.playerAPI).getPlaybackRate ? Math.round(100 * e.getPlaybackRate()) / 100 : 1
     }
     ,
-    _e.pgi = function(e) {
+    Ue.pgi = function(e) {
         return e.browser.pageData.pageViewId
     }
     ,
-    _e[re] = function(e) {
+    Ue[te] = function(e) {
         return e.configData.playerHosting
     }
     ,
-    _e.pid = function(e) {
+    Ue.pid = function(e) {
         return e.configData.playerConfigKey
     }
     ,
-    _e.pii = function(e) {
+    Ue.pii = function(e) {
         return e.playlistItemData.index
     }
     ,
-    _e.pl = function(e) {
+    Ue.pl = function(e) {
         return e.playerData.playerSize.height
     }
     ,
-    _e.plc = function(e) {
+    Ue.plc = function(e) {
         return e.external.playerAPI.getPlaylist().length
     }
     ,
-    _e.pli = function(e) {
+    Ue.pli = function(e) {
         return e.playlistItemData.itemId
     }
     ,
-    _e.pp = function(e) {
-        return v(e.external.playerAPI)
+    Ue.pp = function(e) {
+        return y(e.external.playerAPI)
     }
     ,
-    _e.prc = function(e) {
-        return function() {
-            var e = window.jwplayer
-              , a = 0;
-            if ("function" == typeof e)
-                for (a = 0; a < 1e3; a++)
-                    if (!e(a).uniqueId)
-                        return a;
-            return a
-        }()
+    Ue.prc = function(e) {
+        var a = window.jwplayer
+          , t = 0;
+        if ("function" == typeof a)
+            for (t = 0; t < 1e3; t++)
+                if (!a(t).uniqueId)
+                    return t;
+        return t
     }
     ,
-    _e.ps = function(e) {
+    Ue.ps = function(e) {
         return e.playerData.playerSize.bucket
     }
     ,
-    _e.pss = function(e) {
+    Ue.pss = function(e) {
         return e.meta.playbackTracking.playSessionSequence
     }
     ,
-    _e.pt = function(e) {
+    Ue.pt = function(e) {
         return e.browser.pageData.pageTitle
     }
     ,
-    _e.pu = function(e) {
+    Ue.pu = function(e) {
         return e.browser.pageData.pageURL
     }
     ,
-    _e.pv = function(e) {
+    Ue.pv = function(e) {
         return e.staticPlayerData.playerVersion
     }
     ,
-    _e.pyc = function(e) {
+    Ue.pyc = function(e) {
         return e.meta.playbackTracking.playItemCount
     }
     ,
-    _e.s = function(e) {
+    Ue.s = function(e) {
         return e.configData.sharingEnabled
     }
     ,
-    _e.sdk = function(e) {
+    Ue.sdk = function(e) {
         return e.staticPlayerData.sdkPlatform
     }
     ,
-    _e.stc = function(e) {
+    Ue.stc = function(e) {
         return e.meta.setupCount
     }
     ,
-    _e.sv = function(e) {
+    Ue.sv = function(e) {
         return e.staticPlayerData.sdkVersion
     }
     ,
-    _e.bun = function(e) {
+    Ue.bun = function(e) {
         return e.staticPlayerData.bundleId
     }
     ,
-    _e.ifa = function(e) {
+    Ue.ifa = function(e) {
         return e.meta.doNotPingBackIDs ? void 0 : e.staticPlayerData.advertisingId
     }
     ,
-    _e.om = function(e) {
+    Ue.om = function(e) {
         return e.staticPlayerData.deviceModel
     }
     ,
-    _e.t = function(e) {
-        return Se(e.playlistItemData.item)
+    Ue.t = function(e) {
+        return De(e.playlistItemData.item)
     }
     ,
-    _e.tul = function(e) {
+    Ue.tul = function(e) {
         return e.playlistItemData.item.thumbnailUrl
     }
     ,
-    _e.tv = function(e) {
-        return "3.39.0"
+    Ue.tv = function(e) {
+        return "3.35.1"
     }
     ,
-    _e.vb = function(e) {
+    Ue.vb = function(e) {
         return e.playerData.viewable
     }
     ,
-    _e.vi = function(e) {
-        var a = e.playerData.playerConfig.visibility;
-        return void 0 === a ? a : Math.round(100 * a) / 100
+    Ue.vi = function(e) {
+        e = e.playerData.playerConfig.visibility;
+        return void 0 === e ? e : Math.round(100 * e) / 100
     }
     ,
-    _e.vl = function(e) {
+    Ue.vl = function(e) {
         return e.external.playerAPI.getVolume()
     }
     ,
-    _e.wd = function(e) {
+    Ue.wd = function(e) {
         return e.playerData.playerSize.width
     }
     ,
-    _e.xid = function(e) {
+    Ue.xid = function(e) {
         return e.playlistItemData.externalId
     }
     ,
-    _e.xav = function(e) {
+    Ue.xav = function(e) {
         return e.meta.xidAlgorithmVersion
     }
     ,
-    _e.stpe = function(e) {
+    Ue.stpe = function(e) {
         return !!e.meta.playbackTracking.sendSetTimeEvents
     }
     ,
-    _e.ppm = function(e) {
+    Ue.ppm = function(e) {
         return e.playerData.playbackMode
     }
     ,
-    _e.strt = function(e) {
+    Ue.strt = function(e) {
         var a = e.playerData.startup;
         return e.meta.lastEvent === a.dispatchEvent ? a.startupTime : void 0
     }
     ,
-    _e.tstc = function(e) {
+    Ue.tstc = function(e) {
         return e.browser.pageData.testCaseId
     }
     ,
-    _e.fsm = function(e) {
+    Ue.fsm = function(e) {
         return e.external.playerAPI.getFullscreen()
     }
     ,
-    _e.dpl = function(e) {}
+    Ue.dpl = function(e) {}
     ,
-    _e.ss = function(e) {
+    Ue.ss = function(e) {
         return e.meta.sessionSampled || void 0
     }
     ,
-    _e.amp = function(e) {
+    Ue.amp = function(e) {
         return e.browser.pageData.amp
     }
     ,
-    _e.jwac = function(e) {
+    Ue.jwac = function(e) {
         return e.browser.pageData.jwAmpComponent || void 0
     }
     ,
-    _e.opu = function(e) {
+    Ue.opu = function(e) {
         return e.browser.pageData.origPageURL
     }
     ;
@@ -1489,7 +1359,7 @@
         playready: 3,
         fairplay: 4
     };
-    var ze = {
+    var _e = {
         interaction: 1,
         autostart: 2,
         repeat: 3,
@@ -1499,63 +1369,61 @@
         playlist: 6,
         viewable: 7
     };
-    var Ke = {
+    var ze = {
         none: 1,
         metadata: 2,
         auto: 3
     };
-    function We(e) {
+    function Ke(e) {
         return e === 1 / 0 ? 1 / 0 : (e |= 0) <= 0 ? 0 : e < 30 ? 1 : e < 60 ? 4 : e < 180 ? 8 : e < 300 ? 16 : 32
     }
-    function He(e) {
+    function We(e) {
         try {
             return e.external.playerAPI.qoe().item.sums.stalled || 0
         } catch (e) {
             return 0
         }
     }
-    var $e = Math.round
-      , Je = {};
-    Je.st = function(e) {
+    var He = Math.round
+      , $e = {};
+    $e.st = function(e) {
         return e.playerData.setupTime
     }
     ,
-    Je.bwe = function(e) {
-        return l(e.playerData.playerConfig.bandwidthEstimate)
+    $e.bwe = function(e) {
+        return d(e.playerData.playerConfig.bandwidthEstimate)
     }
     ,
-    Je.cct = function(e) {
+    $e.cct = function(e) {
         return a = e.playlistItemData.item,
-        t = e.external.playerAPI,
+        e = e.external.playerAPI,
         Array.prototype.some.call(a.tracks || 0, function(e) {
-            var a = e.kind;
-            return "captions" === a || "subtitles" === a
-        }) ? 1 : 1 < t.getCaptionsList().length ? 2 : 0;
-        var a, t
+            e = e.kind;
+            return "captions" === e || "subtitles" === e
+        }) ? 1 : 1 < e.getCaptionsList().length ? 2 : 0;
+        var a
     }
     ,
-    Je.drm = function(e) {
+    $e.drm = function(e) {
         return ((a = e.playlistItemData.drm) ? Qe[a] || 999 : 0) || e.meta.playbackTracking.segmentsEncrypted;
         var a
     }
     ,
-    Je.ff = function(e) {
-        return "function" == typeof (a = e.external.playerAPI).qoe ? 10 * Math.round(a.qoe().firstFrame / 10) | 0 : -1;
-        var a
+    $e.ff = function(e) {
+        return "function" == typeof (e = e.external.playerAPI).qoe ? 10 * Math.round(e.qoe().firstFrame / 10) | 0 : -1
     }
     ,
-    Je.l = function(e) {
-        return a = e.playlistItemData.duration,
-        (a |= 0) <= 0 || a === 1 / 0 ? 0 : a < 15 ? 1 : a <= 300 ? 2 : a <= 1200 ? 3 : 4;
-        var a
+    $e.l = function(e) {
+        return e = e.playlistItemData.duration,
+        (e |= 0) <= 0 || e === 1 / 0 ? 0 : e < 15 ? 1 : e <= 300 ? 2 : e <= 1200 ? 3 : 4
     }
     ,
-    Je.vr = function(e) {
+    $e.vr = function(e) {
         return function(e) {
             if (e.getPlugin) {
-                var a = e.getPlugin("vr");
-                if (a)
-                    switch (a.getMode()) {
+                e = e.getPlugin("vr");
+                if (e)
+                    switch (e.getMode()) {
                     case "magic-window":
                         return 0;
                     case "cardboard":
@@ -1570,16 +1438,16 @@
         }(e.external.playerAPI)
     }
     ,
-    Je.etw = function(e) {
+    $e.etw = function(e) {
         return e.meta.playbackTracking.retTimeWatched
     }
     ,
-    Je.ubc = function(e) {
-        return $e(He(e))
+    $e.ubc = function(e) {
+        return He(We(e))
     }
     ,
-    Je.ltc = function(e) {
-        return $e(function(e) {
+    $e.ltc = function(e) {
+        return He(function(e) {
             try {
                 return e.external.playerAPI.qoe().item.sums.loading || 0
             } catch (e) {
@@ -1588,99 +1456,99 @@
         }(e))
     }
     ,
-    Je.ubi = function(e) {
-        return $e(function(e, a) {
+    $e.ubi = function(e) {
+        return He(function(e, a) {
             void 0 === a && (a = e.meta.lastEvent);
-            var t = He(e)
+            var t = We(e)
               , n = e.meta.previousBufferTimes[a];
-            void 0 === e.meta.previousBufferTimes[a] && (n = e.meta.previousBufferTimes[a] = t);
-            var r = Math.round(t - n);
-            return e.meta.previousBufferTimes[a] = t,
-            r
+            return void 0 === e.meta.previousBufferTimes[a] && (n = e.meta.previousBufferTimes[a] = t),
+            n = Math.round(t - n),
+            e.meta.previousBufferTimes[a] = t,
+            n
         }(e))
     }
     ,
-    Je.pw = function(e) {
+    $e.pw = function(e) {
         return 0 | e.meta.playbackTracking.normalizedTime
     }
     ,
-    Je.ti = function(e) {
+    $e.ti = function(e) {
         return e.meta.playbackTracking.elapsedSeconds
     }
     ,
-    Je.vti = function(e) {
+    $e.vti = function(e) {
         return e.meta.playbackTracking.viewableElapsedSeconds
     }
     ,
-    Je.ati = function(e) {
+    $e.ati = function(e) {
         return e.meta.playbackTracking.audibleElapsedSeconds
     }
     ,
-    Je.cvl = function(e) {
+    $e.cvl = function(e) {
         return Math.floor(e.meta.seekTracking.videoStartDragTime)
     }
     ,
-    Je.tvl = function(e) {
+    $e.tvl = function(e) {
         return Math.floor(e.meta.seekTracking.lastTargetTime)
     }
     ,
-    Je.sdt = function(e) {
+    $e.sdt = function(e) {
         return 1 === e.meta.seekTracking.numTrackedSeeks ? 0 : Date.now() - e.meta.seekTracking.dragStartTime
     }
     ,
-    Je.vso = function(e) {
+    $e.vso = function(e) {
         return Math.floor(e.meta.seekTracking.lastTargetTime) - Math.floor(e.meta.seekTracking.videoStartDragTime)
     }
     ,
-    Je.qcr = function(e) {
+    $e.qcr = function(e) {
         return e.playerData.visualQuality.reason
     }
     ,
-    Je.abm = function(e) {
+    $e.abm = function(e) {
         return e.playerData.visualQuality.adaptiveBitrateMode
     }
     ,
-    Je.avc = function(e) {
+    $e.avc = function(e) {
         return e.playerData.numAutoVisualQualityChange
     }
     ,
-    Je.ppr = function(e) {
+    $e.ppr = function(e) {
         return e.meta.playbackTracking.prevPlaybackRate
     }
     ,
-    Je.erc = function(e) {
+    $e.erc = function(e) {
         return e.playerData.lastErrorCode[e.meta.lastEvent]
     }
     ,
-    Je.pcp = function(e) {
-        return $e(e.meta.playbackTracking.currentPosition)
+    $e.pcp = function(e) {
+        return He(e.meta.playbackTracking.currentPosition)
     }
     ,
-    Je.stg = function(e) {
+    $e.stg = function(e) {
         return e.sharing.shareMethod
     }
     ,
-    Je.tps = function(e) {
-        return $e(e.meta.playbackTracking.playedSecondsTotal)
+    $e.tps = function(e) {
+        return He(e.meta.playbackTracking.playedSecondsTotal)
     }
     ,
-    Je.srf = function(e) {
+    $e.srf = function(e) {
         return e.sharing.shareReferrer
     }
     ,
-    Je.plng = function(e) {
+    $e.plng = function(e) {
         return e.playerData.localization.language
     }
     ,
-    Je.pni = function(e) {
+    $e.pni = function(e) {
         return e.playerData.localization.numIntlKeys
     }
     ,
-    Je.pnl = function(e) {
+    $e.pnl = function(e) {
         return e.playerData.localization.numLocalKeys
     }
     ,
-    Je.pbs = function(e) {
+    $e.pbs = function(e) {
         try {
             return e.external.playerAPI.qoe().item.counts.stalled || 0
         } catch (e) {
@@ -1688,95 +1556,90 @@
         }
     }
     ,
-    Je.tc = function(e) {
+    $e.tc = function(e) {
         return e.meta.playbackTracking.thresholdCrossed
     }
     ,
-    Je.flc = function(e) {
+    $e.flc = function(e) {
         return e.playerData.floatingConfigured
     }
     ,
-    Je.fls = function(e) {
+    $e.fls = function(e) {
         return e.playerData.playerConfig.floatingState
     }
     ,
-    Je.xam = function(e) {
+    $e.xam = function(e) {
         return e.playerData.apiTracking.methodCalled
     }
     ,
-    Je.xfmp = function(e) {
+    $e.xfmp = function(e) {
         return e.playerData.apiTracking.firstMeaningfulParam
     }
     ,
-    Je.dle = function(e) {
+    $e.dle = function(e) {
         return e.meta.playbackTracking.latency
     }
     ,
-    Je.cdid = function(e) {
+    $e.cdid = function(e) {
         return e.external.playerAPI.id
     }
     ,
-    Je.pcfg = function(e) {
+    $e.pcfg = function(e) {
         return e.playerData.stringifiedSetupConfig
     }
     ,
-    Je.pvta = function(e) {
+    $e.pvta = function(e) {
         return e.meta.playbackTracking.posterVideoThumbAnimated
     }
     ,
-    Je.ovta = function(e) {
+    $e.ovta = function(e) {
         return e.meta.playbackTracking.overlayVideoThumbAnimated
     }
     ,
-    Je.pvt = function(e) {
+    $e.pvt = function(e) {
         return e.meta.playbackTracking.posterVideoThumbnail || void 0
     }
     ,
-    Je.ipv = function(e) {
+    $e.ipv = function(e) {
         return e.playerData.inferencePluginVersion
     }
     ,
-    Je.bpv = function(e) {
+    $e.bpv = function(e) {
         return e.playerData.biddingPluginVersion
     }
     ,
-    Je.pdt = function(e) {
+    $e.pdt = function(e) {
         var a = e.meta.playbackTracking.programDateTime;
         return e.meta.playbackTracking.programDateTime = void 0,
         a
     }
     ,
-    Je.cst = function(e) {
+    $e.cst = function(e) {
         var a = e.meta.playbackTracking.cueStartTime;
         return e.meta.playbackTracking.cueStartTime = void 0,
         a
     }
     ;
-    var Xe = t
-      , Ye = a
-      , Ze = {
-        mk: function(e) {
-            return function(e, a) {
-                if (!e)
-                    return null;
-                var t = e.sources[0]
-                  , n = t.type;
-                if (!n) {
-                    var r = t.file;
-                    n = a.extension(r)
-                }
-                return n
-            }(e.playlistItemData.item, e.external.utils)
-        }
-    };
-    Ze.pd = function(e) {
-        return a = e.playlistItemData.item,
-        t = a.preload,
-        Ke[t] || 0;
-        var a, t
+    var Je = t
+      , Xe = a
+      , Ye = {};
+    Ye.mk = function(e) {
+        return function(e, a) {
+            if (!e)
+                return null;
+            var t = e.sources[0];
+            return (e = t.type) || (t = t.file,
+            e = a.extension(t)),
+            e
+        }(e.playlistItemData.item, e.external.utils)
     }
     ,
-    Ze.vrt = function(e) {
+    Ye.pd = function(e) {
+        return e = (e = e.playlistItemData.item).preload,
+        ze[e] || 0
+    }
+    ,
+    Ye.vrt = function(e) {
         return function(e) {
             if (!e || !e.stereomode)
                 return null;
@@ -1793,108 +1656,102 @@
         }(e.playlistItemData.item)
     }
     ,
-    Ze.pr = function(e) {
-        return a = e.playlistItemData.playReason,
-        ze[a] || 0;
-        var a
+    Ye.pr = function(e) {
+        return e = e.playlistItemData.playReason,
+        _e[e] || 0
     }
     ,
-    Ze.psd = function(e) {
+    Ye.psd = function(e) {
         return -1 !== Fe.indexOf(e.meta.lastEvent) ? e.related.pinSetId : ke(e.playlistItemData.item)
     }
     ,
-    Ze.vh = function(e) {
+    Ye.vh = function(e) {
         return e.playerData.visualQuality.height
     }
     ,
-    Ze.vw = function(e) {
+    Ye.vw = function(e) {
         return e.playerData.visualQuality.width
     }
     ,
-    Ze.sbr = function(e) {
+    Ye.sbr = function(e) {
         return e.playerData.visualQuality.bitrate
     }
     ,
-    Ze.tb = function(e) {
+    Ye.tb = function(e) {
         return function(e) {
             var a = e.getContainer().querySelector("video")
               , t = 0;
             if (a && (t = a.duration,
             a.buffered && a.buffered.length)) {
-                var n = a.buffered.end(a.buffered.length - 1) || 0;
-                return Math.round(10 * n) / 10
+                a = a.buffered.end(a.buffered.length - 1) || 0;
+                return Math.round(10 * a) / 10
             }
-            return t || (t = Math.abs(e.getDuration())),
+            return t = t || Math.abs(e.getDuration()),
             Math.round(t * e.getBuffer() / 10) / 10
         }(e.external.playerAPI)
     }
     ,
-    Ze.vd = function(e) {
+    Ye.vd = function(e) {
         return e.playlistItemData.duration
     }
     ,
-    Ze.q = function(e) {
-        return We(e.playlistItemData.duration)
+    Ye.q = function(e) {
+        return Ke(e.playlistItemData.duration)
     }
     ,
-    Ze.tt = function(e) {
-        return a = e.playlistItemData.item,
-        t = a.tracks,
-        Array.prototype.some.call(t || 0, function(e) {
+    Ye.tt = function(e) {
+        return e = (e = e.playlistItemData.item).tracks,
+        Array.prototype.some.call(e || 0, function(e) {
             return "thumbnails" === e.kind
-        });
-        var a, t
+        })
     }
     ,
-    Ze.vs = function(e) {
+    Ye.vs = function(e) {
         var a = e.meta.playbackEvents;
-        return function(e, a, t) {
-            var n = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : {};
-            if (!a)
+        return function(e, a, t, n) {
+            if (n = 3 < arguments.length && void 0 !== n ? n : {},
+            !a)
                 return null;
             if (t && t.levels && t.levels.length) {
-                var r = t.levels[0];
-                if (r && "auto" === ("" + r.label).toLowerCase())
+                t = t.levels[0];
+                if (t && "auto" === ("" + t.label).toLowerCase())
                     return 5
             }
-            if (Ee(e.getContainer(), "jw-flag-audio-player"))
-                return 6;
-            var i = 0 | n.width
-              , o = 0 | n.height;
-            return 0 !== i || 0 !== o ? i <= 320 ? 1 : i <= 640 ? 2 : i <= 1280 ? 3 : 4 : "rtmp" === a.sources[0].type ? 6 : 0
-        }(e.external.playerAPI, e.playlistItemData.item, a[Xe], a[Ye])
+            return Pe(e.getContainer(), "jw-flag-audio-player") ? 6 : (e = 0 | n.width,
+            n = 0 | n.height,
+            0 != e || 0 != n ? e <= 320 ? 1 : e <= 640 ? 2 : e <= 1280 ? 3 : 4 : "rtmp" === a.sources[0].type ? 6 : 0)
+        }(e.external.playerAPI, e.playlistItemData.item, a[Je], a[Xe])
     }
     ,
-    Ze.ptid = function(e) {
-        return p(e.playlistItemData.item, "variations.selected.images.id")
+    Ye.ptid = function(e) {
+        return c(e.playlistItemData.item, "variations.selected.images.id")
     }
     ;
-    var ea = M({}, _e, Ne, qe, Ze, Je, Ue, Oe, Ge, Le);
-    function aa(e, i) {
-        var a = me.events[e]
-          , t = a.parameterGroups.reduce(function(e, a) {
-            return e.concat(me.paramGroups[a].members)
-        }, []).concat(a.pingSpecificParameters ? a.pingSpecificParameters : []).reduce(function(e, a) {
-            var t, n, r;
-            return e[a] = (n = i,
-            r = ea[t = a] ? ea[t] : function() {
-                n.meta.debug && console.log("No parameter generation function for param " + t)
+    var Ze = S({}, Ue, Ne, Oe, Ye, $e, qe, Le, Ge, Ve);
+    function ea(e, n) {
+        var a = fe.events[e]
+          , e = a.parameterGroups.reduce(function(e, a) {
+            return e.concat(fe.paramGroups[a].members)
+        }, []).concat(a.pingSpecificParameters ? a.pingSpecificParameters : []).map(function(e) {
+            return t = n,
+            e = Ze[a = e] ? Ze[a] : function() {
+                t.meta.debug && console.log("No parameter generation function for param " + a)
             }
             ,
             {
-                code: t,
-                value: r(n)
-            }),
-            e
-        }, {});
+                code: a,
+                value: e(t)
+            };
+            var a, t
+        });
         return {
             event: a.code,
             bucket: a.bucket,
-            parameters: t,
+            parameters: e,
             pingDestination: a.pingDestination
         }
     }
-    var ta = {
+    var aa = {
         missingMediaOrExternalID: function(e) {
             return !e.meta.sessionSampled && (!e.playlistItemData.mediaId && !e.playlistItemData.externalId)
         },
@@ -1905,185 +1762,101 @@
             return !e.related.feedId
         }
     };
-    var na = function(e, a) {
-        if (!(e instanceof a))
-            throw new TypeError("Cannot call a class as a function")
+    var ta = {
+    	main: "cabin.nei.st/bay/built/jwp",
+        meta: "cabin.nei.st/bay/built/jwp"
     }
-      , ra = function() {
-        function n(e, a) {
-            for (var t = 0; t < a.length; t++) {
-                var n = a[t];
-                n.enumerable = n.enumerable || !1,
-                n.configurable = !0,
-                "value"in n && (n.writable = !0),
-                Object.defineProperty(e, n.key, n)
+      , na = function(e, a, t, n) {
+        var e = [{
+            code: re,
+            value: e
+        }, {
+            code: ne,
+            value: Math.random().toFixed(16).substr(2, 16)
+        }].concat(t)
+          , r = [];
+        e.forEach(function(e) {
+            var a = e.value;
+            !0 !== a && !1 !== a || (a = a ? 1 : 0),
+            null != a && r.push(e.code + "=" + encodeURIComponent(a))
+        });
+        t = "file:" === window.location.protocol ? "https:" : "",
+        e = r.join("&"),
+        e = "h=" + function(e) {
+            var a = 0;
+            if (!(e = decodeURIComponent(e)).length)
+                return a;
+            for (var t = 0; t < e.length; t++) {
+                a = (a << 5) - a + e.charCodeAt(t);
+                a &= a
             }
-        }
-        return function(e, a, t) {
-            return a && n(e.prototype, a),
-            t && n(e, t),
-            e
-        }
-    }()
-      , ia = {
-        main: "cabin.nei.st/lagoon/flow/jwp",
-        main_fallback: "cabin.nei.st/lagoon/flow/jwp",
-        meta: "cabin.nei.st/lagoon/flow/jwp"
+            return a
+        }(e) + "&" + e;
+        return t + "//" + ta[n] + "/" + a + "/ping.gif?" + e
     }
-      , oa = function() {}()
-      , da = function(e) {
-        var a = e.value;
-        return !0 !== a && !1 !== a || (a = a ? "1" : "0"),
-        a && "object" == typeof a && (a = JSON.stringify(a)),
-        null != a ? e.code + "=" + encodeURIComponent(a) : null
-    }
-      , la = ["rtp"]
-      , ua = function(e) {
-        return e.paramData.tp = {
-            code: "tp",
-            value: 1
-        },
-        A(e.url)
-    }
-      , ca = function(e, a, t, n) {
-        var r = A("&tp=1")
-          , i = new oa(e,a,t,ia[n])
-          , o = A(i.url);
-        if (o <= 8192)
-            return i.url;
-        var d = me.parameters
-          , l = Object.keys(d).filter(function(e) {
-            var a = d[e].priority;
-            return 0 < a || a < 0
-        }).filter(function(e) {
-            return e in i.paramData
-        }).filter(function(e) {
-            return "string" == typeof i.paramData[e].value
-        }).sort(function(e, a) {
-            return d[a].priority - d[e].priority
-        })
-          , u = la
-          , c = Array.isArray(u)
-          , s = 0;
-        for (u = c ? u : u[Symbol.iterator](); ; ) {
-            var p;
-            if (c) {
-                if (s >= u.length)
-                    break;
-                p = u[s++]
-            } else {
-                if ((s = u.next()).done)
-                    break;
-                p = s.value
-            }
-            if ("rtp" === p && p in i.paramData && (delete i.paramData.rtp.value.decisionThresholds,
-            (o = ua(i)) <= 8192))
-                return i.url
-        }
-        var f = l
-          , m = Array.isArray(f)
-          , v = 0;
-        for (f = m ? f : f[Symbol.iterator](); ; ) {
-            var g;
-            if (m) {
-                if (v >= f.length)
-                    break;
-                g = f[v++]
-            } else {
-                if ((v = f.next()).done)
-                    break;
-                g = v.value
-            }
-            var y = g;
-            if (i.paramData[y]) {
-                var b = o - 8192 + ("tp"in i.paramData ? 0 : r)
-                  , h = i.paramData[y]
-                  , k = da(h)
-                  , D = k ? A(k) : 0;
-                if (delete i.paramData[y],
-                D <= b)
-                    o = ua(i);
-                else {
-                    for (var w = {
-                        code: y,
-                        value: h.value
-                    }, S = D - b, I = Math.max(20, Math.floor(w.value.length / 10)), T = Math.ceil(w.value.length / I), P = 1; P <= T; P++) {
-                        var E = -I * P;
-                        w.value = w.value.slice(0, E);
-                        var C = A(da(w));
-                        if (0 < w.value.length && C < S) {
-                            i.paramData[y] = w;
-                            break
-                        }
-                    }
-                    if ((o = ua(i)) <= 8192)
-                        return i.url
-                }
-            }
-        }
-        return "main" === n && (i.host = ia.main_fallback),
-        i.url
-    }
-      , sa = function(e) {
+      , ra = function(e) {
         e.trackingState.pageLoaded = !0;
         for (var a = e.trackingState.queue.length; a--; )
-            ma(e, e.trackingState.queue.shift());
+            da(e, e.trackingState.queue.shift());
         window.removeEventListener("load", e.trackingState.boundFlushQueue)
     };
-    function pa(e) {
+    function ia(e) {
         var a = e.external.playerAPI
-          , t = "complete" === (a.getContainer().ownerDocument || window.document).readyState;
-        (e.trackingState.pageLoaded = t) || (e.trackingState.boundFlushQueue = sa.bind(null, e),
+          , a = "complete" === (a.getContainer().ownerDocument || window.document).readyState;
+        (e.trackingState.pageLoaded = a) || (e.trackingState.boundFlushQueue = ra.bind(null, e),
         window.addEventListener && window.addEventListener("load", e.trackingState.boundFlushQueue),
         setTimeout(e.trackingState.boundFlushQueue, 5e3))
     }
-    function fa(e, a) {
+    function oa(e, a) {
         var t = a.event
           , n = a.bucket
           , r = a.parameters
-          , i = a.pingDestination
-          , o = ca(t, n, r, i)
-          , d = !e.trackingState.pageLoaded;
-        if (d && (t === de || t === ue || t === le))
-            sa(e);
-        else if (d)
-            return void e.trackingState.queue.push(o);
-        ma(e, o)
+          , a = a.pingDestination
+          , r = na(t, n, r, a)
+          , a = !e.trackingState.pageLoaded;
+        if (a && (t === oe || t === le || t === de))
+            ra(e);
+        else if (a)
+            return void e.trackingState.queue.push(r);
+        da(e, r)
     }
-    function ma(e, a) {
-        var t = new Image;
-        t.src = a;
-        for (var n = e.trackingState.images, r = n.length; r-- && (n[r].width || n[r].complete); )
-            n.length = r;
-        if (n.push(t),
+    function da(e, a) {
+        var t = new Image
+          , n = void 0;
+        try {
+            n = Date.now()
+        } catch (e) {}
+        t.src = a + "&" + ie + "=" + n;
+        for (var r = e.trackingState.images, i = r.length; i-- && (r[i].width || r[i].complete); )
+            r.length = i;
+        if (r.push(t),
         e.meta.debug && e.trackingState.onping)
             try {
                 e.trackingState.onping.call(null, a)
             } catch (e) {}
     }
-    var va = {
+    var la = {
         delaySend: !1,
         returnURL: !1
     };
-    function ga(t, e) {
-        var a = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "jwplayer6"
-          , n = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : {};
-        n = M({}, va, n),
-        Ve(t, e, a);
-        var r = u(e, a)
-          , i = me.events[r];
-        if (i && !(i.filters || []).map(function(e) {
+    function ca(t, e, a, n) {
+        a = 2 < arguments.length && void 0 !== a ? a : "8.20.1",
+        n = S({}, la, n = 3 < arguments.length && void 0 !== n ? n : {});
+        Me(t, e, a);
+        e = f(e, a),
+        a = fe.events[e];
+        if (a && !(a.filters || []).map(function(e) {
             return a = t,
-            ta[e](a);
+            aa[e](a);
             var a
         }).some(function(e) {
             return !!e
         })) {
-            var o = aa(r, t);
-            return n.delaySend ? fa.bind(null, t, o) : n.returnURL ? ca(o.event, o.bucket, o.parameters, o.pingDestination) : void fa(t, o)
+            e = ea(e, t);
+            return n.delaySend ? oa.bind(null, t, e) : n.returnURL ? na(e.event, e.bucket, e.parameters, e.pingDestination) : void oa(t, e)
         }
     }
-    function ya(e) {
+    function ua(e) {
         if (!e.bidders)
             return {};
         var r = {}
@@ -2092,9 +1865,9 @@
             var t, n, a = e.name;
             r[a.toLowerCase()] = (t = e,
             n = {},
-            U.forEach(function(e) {
+            F.forEach(function(e) {
                 var a;
-                "result" === e ? n.result = S[t[e]] : M(n, void 0 !== t[e] ? ((a = {})[e] = t[e],
+                "result" === e ? n.result = j[t[e]] : S(n, void 0 !== t[e] ? ((a = {})[e] = t[e],
                 a) : void 0),
                 t.code && -1 !== ["error", "invalid"].indexOf(t.result) && (n.errorCode = t.code)
             }),
@@ -2102,8 +1875,8 @@
             e.errorCode && !i && (i = e.errorCode)
         });
         var a = e.floorPriceCurrency;
-        return M({
-            mediationLayer: F[e.mediationLayerAdServer],
+        return S({
+            mediationLayer: N[e.mediationLayerAdServer],
             floorPriceCents: e.floorPriceCents,
             bidders: r,
             bidTimeout: e.bidTimeout
@@ -2113,19 +1886,19 @@
             floorPriceCurrency: a
         } : void 0)
     }
-    function ba(t, e) {
+    function sa(t, e) {
         var n = t.ads.adEventData;
-        -1 === t.ads.adClient && e && (t.ads.adClient = L(e.client)),
+        -1 === t.ads.adClient && e && (t.ads.adClient = T(e.client)),
         e.sequence !== n.podIndex && (delete n.timeAdLoading,
         delete n.adCreativeType),
-        ha(n, e, "offset"),
-        ha(n, e, "witem"),
-        ha(n, e, "wcount"),
-        ha(n, e, "skipoffset"),
-        ha(n, e, "linear", function(e, a) {
+        pa(n, e, "offset"),
+        pa(n, e, "witem"),
+        pa(n, e, "wcount"),
+        pa(n, e, "skipoffset"),
+        pa(n, e, "linear", function(e, a) {
             return a === e
         }),
-        ha(n, e, "adposition", function(e, a) {
+        pa(n, e, "adposition", function(e, a) {
             return {
                 pre: 0,
                 mid: 1,
@@ -2133,7 +1906,7 @@
                 api: 3
             }[a]
         }),
-        ha(n, e, "creativetype", function(e, a) {
+        pa(n, e, "creativetype", function(e, a) {
             var t = "";
             switch (a) {
             case "static":
@@ -2154,22 +1927,22 @@
             }
             return n.adCreativeType = t
         }),
-        ha(n, e, "tag", function(e, a) {
+        pa(n, e, "tag", function(e, a) {
             return n.tagdomain = function(e) {
                 if (e) {
-                    var a = e.match(new RegExp(/^[^/]*:\/\/\/?([^\/]*)/));
-                    if (a && 1 < a.length)
-                        return a[1]
+                    e = e.match(new RegExp(/^[^/]*:\/\/\/?([^\/]*)/));
+                    if (e && 1 < e.length)
+                        return e[1]
                 }
                 return ""
             }(t.external.playerAPI.utils.getAbsolutePath(a)),
             a
         }),
-        ha(n, e, "description"),
-        ha(n, e, "creativeAdId"),
-        ha(n, e, "placement"),
-        ha(n, e, "advertiser"),
-        ha(n, e, "advertiserId"),
+        pa(n, e, "description"),
+        pa(n, e, "creativeAdId"),
+        pa(n, e, "placement"),
+        pa(n, e, "advertiser"),
+        pa(n, e, "advertiserId"),
         e.timeLoading && (n.timeAdLoading = 10 * Math.round(e.timeLoading / 10)),
         e.universalAdId ? n.universalAdId = e.universalAdId.map(function(e) {
             if ("unknown" !== e.universalAdIdRegistry)
@@ -2193,32 +1966,27 @@
         n.jwpseg = e.jwpseg,
         n.timeForVPBCache = e.timeForVPBCache || n.timeForVPBCache,
         n.dealId = e.dealId || n.dealId;
-        var a = void 0;
-        if (a = "googima" === e.client ? (n.creativeId = p(e, "ima.ad.g.creativeId"),
-        p(e, "ima.ad.g.mediaUrl")) : (n.creativeId = p(e, "creativeId"),
-        p(e, "mediafile.file")),
+        var a = void 0
+          , a = "googima" === e.client ? (n.creativeId = c(e, "ima.ad.g.creativeId"),
+        c(e, "ima.ad.g.mediaUrl")) : (n.creativeId = c(e, "creativeId"),
+        c(e, "mediafile.file"));
         n.adMediaFileURL = "string" == typeof a ? a.substring(0, 2500) : a,
-        e.item) {
-            var r = we(e.item);
-            n.targetMediaId = r !== t.playlistItemData.mediaId ? r : null
-        }
-        t.ads.headerBiddingData = ya(e)
+        e.item && (a = we(e.item),
+        n.targetMediaId = a !== t.playlistItemData.mediaId ? a : null),
+        t.ads.headerBiddingData = ua(e)
     }
-    function ha(e, a, t) {
-        var n = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : ka;
-        if (a.hasOwnProperty(t)) {
-            var r = n;
-            e[t] = r(t, a[t])
-        }
+    function pa(e, a, t, n) {
+        n = 3 < arguments.length && void 0 !== n ? n : fa;
+        a.hasOwnProperty(t) && (e[t] = n(t, a[t]))
     }
-    function ka(e, a) {
+    function fa(e, a) {
         return a
     }
-    function Da(e, a) {
+    function ma(e, a) {
         e.meta.playerState !== a && (e.meta.playerStateDuration = Date.now()),
         e.meta.playerState = a
     }
-    function wa(e, a) {
+    function ga(e, a) {
         null === e.previousTime && (e.previousTime = a);
         var t = a - e.previousTime;
         return e.previousTime = a,
@@ -2226,219 +1994,201 @@
         e.playedSeconds = e.playedSeconds + t,
         t
     }
-    function Sa(e, a) {
+    function va(e, a) {
         var t = e.ads.adEventData
           , n = e.ads.currentQuartile;
-        n > t.previousQuartile && (ba(e, a),
-        ga(e, "v", "clienta"),
+        n > t.previousQuartile && (sa(e, a),
+        ca(e, "v", "clienta"),
         t.previousQuartile = n)
     }
-    var Ia = {
+    var ya = {
         adComplete: function(e, a) {
             e.ads.currentQuartile = 4,
-            Sa(e, a)
+            va(e, a)
         },
         adError: function(e, a) {
             "object" == typeof a && a && (e.playerData.lastErrorCode.ae = a.code || 1,
             e.ads.jwAdErrorCode = a.adErrorCode,
             51901 === a.adErrorCode ? e.ads.errorMessage = "string" == typeof a.message ? a.message.substring(0, 100) : void 0 : e.ads.errorMessage = void 0,
             e.ads.timeout = a.timeout),
-            ga(e, "ae", "clienta")
+            ca(e, "ae", "clienta")
         },
         adTime: function(e, a) {
             var t = e.ads.adEventData
               , n = t.position = a.position;
             t.duration = t.duration || a.duration;
-            var r = e.ads.adPlaybackTracking
-              , i = e.ads.pingLimiters;
-            !n || t.position > t.duration || (!function(e, a, t) {
-                var n = wa(a, t)
-                  , r = e.ads.pingLimiters.visibleEvent.canSendPing(se) || e.ads.pingLimiters.visibleEvent.canSendPing(ce);
-                e.playerData.viewable && (r && (1 === e.external.playerAPI.getConfig().visibility ? (a.consecutiveVisibleSeconds += n,
-                a.totalVisibleSeconds += n,
-                a.maxConsecutiveVisibleSeconds = Math.max(a.maxConsecutiveVisibleSeconds, a.consecutiveVisibleSeconds)) : (a.maxConsecutiveVisibleSeconds = Math.max(a.maxConsecutiveVisibleSeconds, a.consecutiveVisibleSeconds),
-                a.consecutiveVisibleSeconds = 0)),
-                a.viewablePlayedSeconds = a.viewablePlayedSeconds + n);
-                !e.playerData.muted && 0 < e.playerData.volume && (a.audiblePlayedSeconds = a.audiblePlayedSeconds + n)
-            }(e, r, n),
-            i.visibleEvent.canSendPing(se) && r.totalVisibleSeconds >= Math.floor(t.duration / 2) && (ga(e, se, "clienta"),
-            i.visibleEvent.setPingSent(se)),
-            i.visibleEvent.canSendPing(ce) && 2 <= r.maxConsecutiveVisibleSeconds && (ga(e, ce, "clienta"),
-            i.visibleEvent.setPingSent(ce)),
+            var r, i, o, d = e.ads.adPlaybackTracking, l = e.ads.pingLimiters;
+            !n || t.position > t.duration || (r = e,
+            n = ga(i = d, o = n),
+            o = r.ads.pingLimiters.visibleEvent.canSendPing(ue) || r.ads.pingLimiters.visibleEvent.canSendPing(ce),
+            r.playerData.viewable && (o && (1 === r.external.playerAPI.getConfig().visibility ? (i.consecutiveVisibleSeconds += n,
+            i.totalVisibleSeconds += n,
+            i.maxConsecutiveVisibleSeconds = Math.max(i.maxConsecutiveVisibleSeconds, i.consecutiveVisibleSeconds)) : (i.maxConsecutiveVisibleSeconds = Math.max(i.maxConsecutiveVisibleSeconds, i.consecutiveVisibleSeconds),
+            i.consecutiveVisibleSeconds = 0)),
+            i.viewablePlayedSeconds = i.viewablePlayedSeconds + n),
+            !r.playerData.muted && 0 < r.playerData.volume && (i.audiblePlayedSeconds = i.audiblePlayedSeconds + n),
+            l.visibleEvent.canSendPing(ue) && d.totalVisibleSeconds >= Math.floor(t.duration / 2) && (ca(e, ue, "clienta"),
+            l.visibleEvent.setPingSent(ue)),
+            l.visibleEvent.canSendPing(ce) && 2 <= d.maxConsecutiveVisibleSeconds && (ca(e, ce, "clienta"),
+            l.visibleEvent.setPingSent(ce)),
             e.ads.currentQuartile = Math.min(3, Math.floor((4 * t.position + .05) / t.duration)),
-            Sa(e, a))
+            va(e, a))
         },
         adSkipped: function(e, a) {
             e.ads.watchedPastSkipPoint = a.watchedPastSkipPoint,
-            ga(e, "s", "clienta")
+            ca(e, "s", "clienta")
         },
         adImpression: function(e, a) {
-            g(e, de);
+            C(e, oe);
             var t = e.ads.adPlaybackTracking;
             t.audiblePlayedSeconds = 0,
             t.viewablePlayedSeconds = 0,
             t.playedSeconds = 0,
             t.previousTime = null,
-            ga(e, de, "clienta")
+            ca(e, oe, "clienta")
         },
         adBreakEnd: function(e, a) {
-            e.ads.adEventData = M({}, q)
+            e.ads.adEventData = S({}, B)
         }
     };
-    function Ta(i) {
-        var e = i.external.playerAPI;
-        e.on(N.join(" "), function() {
-            Da(i, "ad-break"),
-            i.ads.adBreakTracking && i.ads.adBreakTracking.shouldTrack && (i.ads.adBreakTracking.shouldTrack = !1,
-            i.ads.adBreakTracking.adBreakCount++)
+    function ba(n) {
+        var e = n.external.playerAPI;
+        e.on(O.join(" "), function() {
+            ma(n, "ad-break"),
+            n.ads.adBreakTracking && n.ads.adBreakTracking.shouldTrack && (n.ads.adBreakTracking.shouldTrack = !1,
+            n.ads.adBreakTracking.adBreakCount++)
         }),
         e.on("adClick adRequest adMeta adImpression adComplete adSkipped adError adTime adBidRequest adBidResponse adStarted adLoaded adViewableImpression adBreakEnd", function(e) {
-            var a, t, n, r = i.ads.adEventData;
-            a = r,
-            "adClick" === (t = e).type || a && a.adId === t.id && -1 !== t.id || (i.ads.adEventData = M({
+            var a, t = n.ads.adEventData;
+            a = t,
+            "adClick" === (t = e).type || a && a.adId === t.id && -1 !== t.id || (n.ads.adEventData = S({
                 adId: e.id
-            }, q),
-            i.ads.pingLimiters.visibleEvent.resetAll(),
-            i.ads.adPlaybackTracking = M({}, I)),
-            n = e,
-            -1 === C.indexOf(n.type) && ba(i, e),
-            e.type in Ia ? Ia[e.type](i, e) : -1 === E.indexOf(e.type) && ga(i, P[e.type], "clienta")
+            }, B),
+            n.ads.pingLimiters.visibleEvent.resetAll(),
+            n.ads.adPlaybackTracking = S({}, R)),
+            t = e,
+            -1 === G.indexOf(t.type) && sa(n, e),
+            e.type in ya ? ya[e.type](n, e) : -1 === L.indexOf(e.type) && ca(n, V[e.type], "clienta")
         })
     }
-    function Pa(e) {
-        var a, t;
-        "function" == typeof navigator.sendBeacon && (a = e,
-        t = function() {
-            g(a, ae);
-            var e = ga(a, ae, "jwplayer6", {
+    function ka(a) {
+        function e() {
+            C(a, Z);
+            var e = ca(a, Z, "jwplayer6", {
                 returnURL: !0
             });
             void 0 !== e && navigator.sendBeacon(e)
         }
-        ,
-        window.addEventListener("unload", t),
+        window.addEventListener("unload", e),
         a.external.playerAPI.on("remove", function() {
-            g(a, ae),
-            window.removeEventListener("unload", t),
+            C(a, Z),
+            window.removeEventListener("unload", e),
             a.meta.playerRemoved = !0,
-            ga(a, ae, "jwplayer6")
-        }))
+            ca(a, Z, "jwplayer6")
+        })
     }
-    var Ea = ["predictions", "segments", "decisionThresholds"];
-    var Ca = 1e3;
-    function Aa(e) {
+    var ha = ["predictions", "segments"];
+    var wa = 1e3;
+    function Da(e) {
+        var a, t = e.meta.seekTracking;
+        Sa(t) && (clearTimeout(t.seekDebounceTimeout),
+        a = ca(e, "vs", "jwplayer6", {
+            delaySend: !0
+        }),
+        t.seekDebounceTimeout = setTimeout(function() {
+            var e;
+            a && a(),
+            (e = t).videoStartDragTime = 0,
+            e.dragStartTime = 0,
+            e.seekDebounceTimeout = null,
+            e.lastTargetTime = 0,
+            e.numTrackedSeeks = 0
+        }, wa))
+    }
+    function Sa(e) {
         return 0 < e.numTrackedSeeks
     }
-    var xa = a
-      , ja = e
-      , Ba = n;
-    function Ra(e) {
+    var Ia = a
+      , Ta = e
+      , Pa = n;
+    function Ea(e) {
         e.meta.playbackTracking.playItemCount++,
-        ga(e, "s")
+        ca(e, "s")
     }
-    function Ma(c, s) {
+    function Ca(d, l) {
         return function(e) {
-            var a = c.meta.playbackEvents
-              , t = c.playlistItemData
-              , n = c.meta.playbackTracking
-              , r = c.external.playerAPI
-              , i = a[s];
-            if (s === xa) {
-                var o = e.segment;
-                o && (n.segmentReceived = !0,
-                n.segmentsEncrypted = o.encryption),
-                t.drm = e.drm || t.drm || "";
-                var d = p(e, "metadata.programDateTime");
-                d && (c.meta.playbackTracking.programDateTime = d);
-                var l = p(e, "metadata.start");
-                l && (c.meta.playbackTracking.cueStartTime = l)
-            }
-            if (a[s] = e,
-            s === ja) {
-                i || (n.playedSeconds = 0,
-                n.viewablePlayedSeconds = 0,
-                n.audiblePlayedSeconds = 0,
-                n.playedSecondsTotal = 0);
-                var u = h(r);
-                n.previousTime = u,
-                n.currentPosition = u
-            }
-            s === Ba && (g(c, z),
-            "flash_adaptive" === v(r) ? !c.meta.playbackSent && n.segmentReceived && (c.meta.playbackSent = !0,
-            n.segmentReceived = !1,
-            Ra(c)) : c.meta.playbackSent || (c.meta.playbackSent = !0,
-            Ra(c)))
+            var a, t = d.meta.playbackEvents, n = d.playlistItemData, r = d.meta.playbackTracking, i = d.external.playerAPI, o = t[l];
+            l === Ia && ((a = e.segment) && (r.segmentReceived = !0,
+            r.segmentsEncrypted = a.encryption),
+            n.drm = e.drm || n.drm || "",
+            (n = c(e, "metadata.programDateTime")) && (d.meta.playbackTracking.programDateTime = n),
+            (n = c(e, "metadata.start")) && (d.meta.playbackTracking.cueStartTime = n)),
+            t[l] = e,
+            l === Ta && (o || (r.playedSeconds = 0,
+            r.viewablePlayedSeconds = 0,
+            r.audiblePlayedSeconds = 0,
+            r.playedSecondsTotal = 0),
+            o = g(i),
+            r.previousTime = o,
+            r.currentPosition = o),
+            l === Pa && (C(d, Q),
+            "flash_adaptive" === y(i) ? !d.meta.playbackSent && r.segmentReceived && (d.meta.playbackSent = !0,
+            r.segmentReceived = !1,
+            Ea(d)) : d.meta.playbackSent || (d.meta.playbackSent = !0,
+            Ea(d)))
         }
     }
-    function Va(e) {
+    function Aa(e) {
         var a = e.meta.playbackTracking
           , t = a.playedSeconds
           , n = a.viewablePlayedSeconds
           , r = a.audiblePlayedSeconds;
         a.playedSeconds = 0,
         a.viewablePlayedSeconds = 0;
-        var i = t + .5 | (a.audiblePlayedSeconds = 0);
-        a.elapsedSeconds = i;
-        var o = n + .5 | 0;
-        a.viewableElapsedSeconds = o;
-        var d = r + .5 | 0;
-        a.audibleElapsedSeconds = d,
-        0 < i && ga(e, W)
+        t = t + .5 | (a.audiblePlayedSeconds = 0);
+        a.elapsedSeconds = t;
+        n = n + .5 | 0;
+        a.viewableElapsedSeconds = n;
+        r = r + .5 | 0;
+        a.audibleElapsedSeconds = r,
+        0 < t && ca(e, z)
     }
-    function La(e, a, t, n) {
+    function xa(e, a, t, n) {
         a < n && n <= a + t && (e.meta.playbackTracking.retTimeWatched = n,
-        ga(e, "ret"))
+        ca(e, "ret"))
     }
-    function Oa(e, a, t) {
-        var n, r, i, o = H + "-" + t;
+    function ja(e, a, t) {
+        var n, r, i = K + "-" + t;
         n = a,
         r = t,
-        i = o,
-        e.meta.pingLimiters.playlistItem.canSendPing(i) && Math.floor(n) === r && (e.meta.playbackTracking.thresholdCrossed = t,
-        ga(e, H),
-        e.meta.pingLimiters.playlistItem.setPingSent(o))
+        a = i,
+        e.meta.pingLimiters.playlistItem.canSendPing(a) && Math.floor(n) === r && (e.meta.playbackTracking.thresholdCrossed = t,
+        ca(e, K),
+        e.meta.pingLimiters.playlistItem.setPingSent(i))
     }
-    function Ga(e, a) {
-        var t, n, r, i = 2 < arguments.length && void 0 !== arguments[2] && arguments[2], o = arguments[3];
-        i ? function(e) {
-            var a = e.meta.seekTracking;
-            if (Aa(a)) {
-                clearTimeout(a.seekDebounceTimeout);
-                var t = ga(e, "vs", "jwplayer6", {
-                    delaySend: !0
-                });
-                a.seekDebounceTimeout = setTimeout(function() {
-                    var e;
-                    t && t(),
-                    (e = a).videoStartDragTime = 0,
-                    e.dragStartTime = 0,
-                    e.seekDebounceTimeout = null,
-                    e.lastTargetTime = 0,
-                    e.numTrackedSeeks = 0
-                }, Ca)
-            }
-        }(e) : (t = e.meta.seekTracking,
-        n = a,
-        r = o,
-        Aa(t) || (t.videoStartDragTime = r,
-        t.dragStartTime = Date.now()),
-        t.numTrackedSeeks++,
-        t.lastTargetTime = n.offset)
+    function Ba(e, a, t, n) {
+        2 < arguments.length && void 0 !== t && t ? Da(e) : (e = e.meta.seekTracking,
+        a = a,
+        n = n,
+        Sa(e) || (e.videoStartDragTime = n,
+        e.dragStartTime = Date.now()),
+        e.numTrackedSeeks++,
+        e.lastTargetTime = a.offset)
     }
-    function qa(e, a, t) {
-        var n, r;
+    function Ra(e, a, t) {
+        var n;
         e.playerData.lastErrorCode[a] = t.code,
-        g(e, fe),
-        e.meta.eventPreAbandonment = u(a, "error"),
-        e.errors.numberEventsSent < e.errors.NUM_ERRORS_PER_SESSION && (r = a,
-        "number" == typeof (n = e).playerData.lastErrorCode[r] || Math.random() < n.errors.SAMPLE_RATE) && (e.errors.numberEventsSent += 1,
-        ga(e, a, Q))
+        C(e, pe),
+        e.meta.eventPreAbandonment = a + "-error",
+        e.errors.numberEventsSent < e.errors.NUM_ERRORS_PER_SESSION && (n = a,
+        "number" == typeof (t = e).playerData.lastErrorCode[n] || Math.random() < t.errors.SAMPLE_RATE) && (e.errors.numberEventsSent += 1,
+        ca(e, a, U))
     }
-    var Na = n
-      , Fa = t
-      , Ua = a
-      , _a = e;
-    function Qa(e) {
+    var Ma = n
+      , Va = t
+      , La = a
+      , Ga = e;
+    function Oa(e) {
         var a = e.meta;
         a.playbackEvents = {},
         a.playbackSent = !1,
@@ -2447,181 +2197,182 @@
         a.playbackTracking.posterVideoThumbAnimated = void 0,
         a.playbackTracking.overlayVideoThumbAnimated = void 0,
         e.playerData.numAutoVisualQualityChange = 0;
-        var t = e.playerData.startup;
-        t.initialTime = null,
-        t.startupTime = null,
-        t.dispatchEvent = null
+        e = e.playerData.startup;
+        e.initialTime = null,
+        e.startupTime = null,
+        e.dispatchEvent = null
     }
-    function za(v) {
-        var e, a, g = v.external.playerAPI, i = function(e, a) {
+    function Na(c) {
+        var e, u = c.external.playerAPI, n = function(e, a) {
             e.playlistItemData.playReason = a.playReason || "",
             e.playerData.startup.initialTime = Date.now(),
-            ga(e, "pa")
+            ca(e, "pa")
         }
-        .bind(null, v), t = function(e, a) {
+        .bind(null, c), a = function(e, a) {
             var t = e.playlistItemData.mediaId;
-            t && t === we(a.item) && (e.playerData.lastErrorCode[J] = a.code,
-            ga(e, "paf", "error"))
+            t && t === we(a.item) && (e.playerData.lastErrorCode[H] = a.code,
+            ca(e, "paf", "error"))
         }
-        .bind(null, v);
-        g.on("idle buffer play pause complete error", function(e) {
-            Da(v, e.type)
+        .bind(null, c);
+        u.on("idle buffer play pause complete error", function(e) {
+            ma(c, e.type)
         }),
-        g.on("idle", Qa.bind(null, v)),
-        g.on("ready", function(e) {
-            var a = v.playlistItemData
-              , t = v.playerData;
-            a.ready = M({}, e),
-            t.viewable = g.getViewable(),
-            t.muted = g.getMute(),
-            t.volume = g.getVolume(),
-            t.inferencePluginVersion = s(g.getPlugin("inference")),
-            t.biddingPluginVersion = s(g.getPlugin("bidding"))
+        u.on("idle", Oa.bind(null, c)),
+        u.on("ready", function(e) {
+            var a = c.playlistItemData
+              , t = c.playerData;
+            a.ready = S({}, e),
+            t.viewable = u.getViewable(),
+            t.muted = u.getMute(),
+            t.volume = u.getVolume(),
+            t.inferencePluginVersion = m(u.getPlugin("inference")),
+            t.biddingPluginVersion = m(u.getPlugin("bidding"))
         }),
-        g.on("playlistItem", function(e) {
-            var a = v.playlistItemData;
+        u.on("playlistItem", function(e) {
+            var a = c.playlistItemData;
             a.drm = "",
-            0 !== v.meta.playbackTracking.playSessionSequence && (a.itemId = V(12)),
-            v.meta.playbackTracking.playSessionSequence++,
+            0 !== c.meta.playbackTracking.playSessionSequence && (a.itemId = I(12)),
+            c.meta.playbackTracking.playSessionSequence++,
             a.index = e.index;
-            var t, n, r = e.item || m(g);
-            r && (a.mediaId = we(r),
-            Te(v, r)),
-            a.ready && (v.meta.playbackTracking.posterVideoThumbnail = Ie(e.item),
-            t = v,
-            n = a.ready,
+            var t = e.item || v(u);
+            t && (a.mediaId = we(t),
+            Ie(c, t)),
+            a.ready && (c.meta.playbackTracking.posterVideoThumbnail = Se(e.item),
+            t = c,
+            e = a.ready,
             t.playerData.setupTime = -1,
-            n && n.setupTime && (t.playerData.setupTime = 10 * Math.round(n.setupTime / 10) | 0),
-            ga(t, "e"),
+            e && e.setupTime && (t.playerData.setupTime = 10 * Math.round(e.setupTime / 10) | 0),
+            ca(t, "e"),
             a.item = null,
             a.ready = null),
-            g.off("beforePlay", i),
-            g.once("beforePlay", i),
-            Qa(v),
-            v.meta.playbackTracking.segmentReceived = v.meta.playbackTracking.segmentsEncrypted = !1
+            u.off("beforePlay", n),
+            u.once("beforePlay", n),
+            Oa(c),
+            c.meta.playbackTracking.segmentReceived = c.meta.playbackTracking.segmentsEncrypted = !1
         }),
-        g.on("playAttemptFailed", t),
-        g.on("meta", Ma(v, Ua)),
-        g.on("levels", Ma(v, Fa)),
-        g.on("play", Ma(v, _a)),
-        g.on("firstFrame", Ma(v, Na)),
-        g.on("time", function(e) {
-            var a = v.meta.playbackEvents
-              , t = v.meta.playbackTracking
-              , n = "number" == typeof e.currentTime ? e.currentTime : h(g);
+        u.on("playAttemptFailed", a),
+        u.on("meta", Ca(c, La)),
+        u.on("levels", Ca(c, Va)),
+        u.on("play", Ca(c, Ga)),
+        u.on("firstFrame", Ca(c, Ma)),
+        u.on("time", function(e) {
+            var a = c.meta.playbackEvents
+              , t = c.meta.playbackTracking
+              , n = "number" == typeof e.currentTime ? e.currentTime : g(u);
             t.currentPosition = n;
             var r = e.duration;
             if (n)
-                if (v.meta.seekTracking.dragStartTime)
+                if (c.meta.seekTracking.dragStartTime)
                     t.previousTime = n;
                 else {
-                    1 < n && (a[Fa] || Ma(v, Fa)({}));
-                    var i, o, d, l = We(r), u = (i = n,
-                    d = l,
-                    (o = r) === 1 / 0 ? null : i / (o / d) + 1 | 0);
-                    0 === t.trackingSegment && (t.trackingSegment = u);
-                    var c, s, p, f = (c = v,
-                    p = wa(s = t, n),
-                    c.playerData.viewable && (s.viewablePlayedSeconds = s.viewablePlayedSeconds + p),
-                    !c.playerData.muted && 0 < c.playerData.volume && (s.audiblePlayedSeconds = s.audiblePlayedSeconds + p),
-                    p);
-                    if (La(v, t.playedSecondsTotal, f, 10),
-                    La(v, t.playedSecondsTotal, f, 30),
-                    La(v, t.playedSecondsTotal, f, 60),
-                    t.playedSecondsTotal = t.playedSecondsTotal + f,
-                    !0 === t.sendSetTimeEvents && (Oa(v, n, 3),
-                    Oa(v, n, 10),
-                    Oa(v, n, 30)),
+                    1 < n && (a[Va] || Ca(c, Va)({}));
+                    var i = Ke(r)
+                      , a = (o = n,
+                    l = i,
+                    (d = r) === 1 / 0 ? null : o / (d / l) + 1 | 0);
+                    0 === t.trackingSegment && (t.trackingSegment = a);
+                    var o, d, l, l = (o = c,
+                    l = ga(d = t, l = n),
+                    o.playerData.viewable && (d.viewablePlayedSeconds = d.viewablePlayedSeconds + l),
+                    !o.playerData.muted && 0 < o.playerData.volume && (d.audiblePlayedSeconds = d.audiblePlayedSeconds + l),
+                    l);
+                    if (xa(c, t.playedSecondsTotal, l, 10),
+                    xa(c, t.playedSecondsTotal, l, 30),
+                    xa(c, t.playedSecondsTotal, l, 60),
+                    t.playedSecondsTotal = t.playedSecondsTotal + l,
+                    !0 === t.sendSetTimeEvents && (ja(c, n, 3),
+                    ja(c, n, 10),
+                    ja(c, n, 30)),
                     r <= 0 || r === 1 / 0)
-                        t.playedSeconds >= b && (t.latency = e.latency,
-                        Va(v));
-                    else if (u === t.trackingSegment + 1) {
-                        var m = y * t.trackingSegment / l;
-                        if (l < u)
+                        t.playedSeconds >= p && (t.latency = e.latency,
+                        Aa(c));
+                    else if (a === t.trackingSegment + 1) {
+                        e = s * t.trackingSegment / i;
+                        if (i < a)
                             return;
-                        t.normalizedTime = m,
-                        Va(v),
+                        t.normalizedTime = e,
+                        Aa(c),
                         t.trackingSegment = 0
                     }
                 }
         }),
-        g.on("seek", function(e) {
-            v.meta.playbackTracking.previousTime = h(g),
-            v.meta.playbackTracking.trackingSegment = 0;
-            var a = v.meta.playbackTracking.currentPosition;
-            Ga(v, e, !1, a)
+        u.on("seek", function(e) {
+            c.meta.playbackTracking.previousTime = g(u),
+            c.meta.playbackTracking.trackingSegment = 0;
+            var a = c.meta.playbackTracking.currentPosition;
+            Ba(c, e, !1, a)
         }),
-        g.on("seeked", function(e) {
-            Ga(v, e, !0)
+        u.on("seeked", function(e) {
+            Ba(c, e, !0)
         }),
-        g.on("complete", function() {
-            var e = v.meta.playbackTracking
-              , a = D(v);
-            if (!(a <= 0 || a === 1 / 0)) {
-                We(a);
-                e.normalizedTime = y,
-                Va(v),
-                e.playedSecondsTotal = 0
-            }
+        u.on("complete", function() {
+            var e = c.meta.playbackTracking
+              , a = E(c);
+            a <= 0 || a === 1 / 0 || (Ke(a),
+            e.normalizedTime = s,
+            Aa(c),
+            e.playedSecondsTotal = 0)
         }),
-        g.on("cast", function(e) {
-            v.casting = !!e.active
+        u.on("cast", function(e) {
+            c.casting = !!e.active
         }),
-        g.on("playbackRateChanged", function(e) {
-            ga(v, "pru"),
-            v.meta.playbackTracking.prevPlaybackRate = e.playbackRate
+        u.on("playbackRateChanged", function(e) {
+            ca(c, "pru"),
+            c.meta.playbackTracking.prevPlaybackRate = e.playbackRate
         }),
-        g.on("visualQuality", function(e) {
-            "auto" === e.reason && (v.playerData.numAutoVisualQualityChange += 1);
-            var a, t, n = O(g);
-            a = n,
-            t = !1,
-            k.width === a.width && k.height === a.height || (t = !0),
-            k = a,
-            t && -1 === r.indexOf(n.reason) && ga(v, "vqc")
+        u.on("visualQuality", function(e) {
+            "auto" === e.reason && (c.playerData.numAutoVisualQualityChange += 1);
+            var a, t = P(u);
+            a = t,
+            e = !1,
+            b.width === a.width && b.height === a.height || (e = !0),
+            b = a,
+            e && -1 === r.indexOf(t.reason) && ca(c, "vqc")
         }),
-        g.on(o.join(" "), function() {
-            v.ads.adBreakTracking && (v.ads.adBreakTracking.shouldTrack = !0)
+        u.on(i.join(" "), function() {
+            c.ads.adBreakTracking && (c.ads.adBreakTracking.shouldTrack = !0)
         }),
-        g.on("error", qa.bind(null, v, fe)),
-        g.on("setupError", qa.bind(null, v, pe)),
-        g.on("autostartNotAllowed", function() {
-            ga(v, K)
+        u.on("error", Ra.bind(null, c, pe)),
+        u.on("setupError", Ra.bind(null, c, se)),
+        u.on("autostartNotAllowed", function() {
+            ca(c, _)
         }),
-        g.on("viewable", function(e) {
-            v.playerData.viewable = e.viewable
+        u.on("viewable", function(e) {
+            c.playerData.viewable = e.viewable
         }),
-        g.on("mute", function(e) {
-            v.playerData.muted = e.mute
+        u.on("mute", function(e) {
+            c.playerData.muted = e.mute
         }),
-        g.on("volume", function(e) {
-            v.playerData.volume = e.volume
+        u.on("volume", function(e) {
+            c.playerData.volume = e.volume
         }),
-        g.on("captionsChanged", function(e) {
-            0 !== e.track && 0 === v.playerData.captionsIndex && ga(v, ne),
-            v.playerData.captionsIndex = e.track
+        u.on("captionsChanged", function(e) {
+            0 !== e.track && 0 === c.playerData.captionsIndex && ca(c, ae),
+            c.playerData.captionsIndex = e.track
         }),
-        g.on("videoThumbFirstFrame", function(e) {
-            v.meta.playbackTracking.posterVideoThumbAnimated = !0
+        u.on("videoThumbFirstFrame", function(e) {
+            c.meta.playbackTracking.posterVideoThumbAnimated = !0
         }),
-        g.on("inference", function(e) {
-            var t;
+        u.on("inference", function(e) {
+            var a, t;
+            a = c,
             t = e,
-            v.inference.result = Ea.reduce(function(e, a) {
+            e = ha.reduce(function(e, a) {
                 return t[a] && (e[a] = t[a]),
                 e
-            }, {})
+            }, {}),
+            a.inference.result = e
         }),
-        Qa(v),
-        a = W,
-        (e = v).meta.previousBufferTimes[a] = He(e)
+        Oa(c),
+        e = z,
+        (a = c).meta.previousBufferTimes[e] = We(a)
     }
-    function Ka(e, a) {
-        e.related.feedId = be(a),
-        e.related.feedInstanceId = he(a),
-        e.related.feedType = De(a, "kind"),
+    function Fa(e, a) {
+        e.related.feedId = ye(a),
+        e.related.feedInstanceId = be(a),
+        e.related.feedType = he(a, "kind"),
         e.related.feedShownId = a.feedShownId,
-        e.related.onClickSetting = "onclick"in a ? "play" === a.onclick ? 1 : 0 : void 0,
+        "onclick"in a ? e.related.onClickSetting = "play" === a.onclick ? 1 : 0 : e.related.onClickSetting = void 0,
         e.related.feedInterface = a.ui;
         var t = a.itemsShown || []
           , n = 0
@@ -2633,12 +2384,12 @@
         t.forEach(function(e) {
             ke(e) && n++,
             r.push(we(e));
-            var a = Ie(e) ? "1" : "0";
-            l || "1" !== a || (l = !0),
+            var a = Se(e) ? "1" : "0";
+            l || "1" != a || (l = !0),
             o.push(a);
-            var t = p(e, "variations.selected.images.id");
-            t && (d = !1),
-            i.push(t || "null")
+            e = c(e, "variations.selected.images.id");
+            e && (d = !1),
+            i.push(e || "null")
         }),
         e.related.thumbnailIdsShown = d ? [] : i,
         e.related.idsShown = r,
@@ -2647,40 +2398,40 @@
         e.related.autotimerLength = a.autoTimer,
         e.related.pinSetId = ke(a.target),
         e.related.advanceTarget = we(a.target),
-        e.related.targetThumbID = p(a.target, "variations.selected.images.id"),
+        e.related.targetThumbID = c(a.target, "variations.selected.images.id"),
         e.related.overlayVideoThumbs = l ? o.join(",") : void 0,
-        e.related.ordinalClicked = "position"in a ? a.position + 1 : a.index
+        "position"in a ? e.related.ordinalClicked = a.position + 1 : e.related.ordinalClicked = a.index
     }
-    function Wa(e, a, t) {
-        Ka(e, a),
-        ga(e, t)
+    function qa(e, a, t) {
+        Fa(e, a),
+        ca(e, t)
     }
-    function Ha(a) {
+    function Ua(a) {
         var e = a.external.playerAPI.getPlugin("related");
         e && (e.on("playlist", function(e) {
-            null !== e.playlist && Wa(a, e, X)
+            null !== e.playlist && qa(a, e, $)
         }),
         e.on("feedShown", function(e) {
-            Da(a, "recs-overlay"),
+            ma(a, "recs-overlay"),
             a.related.shownReason = e.reason,
             a.related.feedWasViewable = e.viewable,
-            Wa(a, e, Y)
+            qa(a, e, J)
         }),
         e.on("feedClick", function(e) {
-            Wa(a, e, Z)
+            qa(a, e, X)
         }),
         e.on("feedAutoAdvance", function(e) {
-            Wa(a, e, ee)
+            qa(a, e, Y)
         }),
         e.on("videoThumbFirstFrame", function(e) {
             a.meta.playbackTracking.overlayVideoThumbAnimated = !0
         }),
         a.related.relatedSetUp = !0)
     }
-    function $a(t) {
+    function Qa(t) {
         t.external.playerAPI.getPlugin && (t.external.playerAPI.on("ready", function() {
             var a, e;
-            Ha(t),
+            Ua(t),
             (e = (a = t).external.playerAPI).on("playlistItem", function() {
                 a.related.sendHoverPing = !0,
                 a.related.nextShownReason = null,
@@ -2689,22 +2440,22 @@
             e.on("nextShown", function(e) {
                 a.related.nextShownReason = e.reason,
                 a.related.shownReason = e.reason,
-                Da(a, "recs-overlay"),
-                ("hover" !== e.reason || a.related.sendHoverPing) && (a.related.sendHoverPing = !1,
-                Wa(a, e, Y))
+                ma(a, "recs-overlay"),
+                "hover" === e.reason && !a.related.sendHoverPing || (a.related.sendHoverPing = !1,
+                qa(a, e, J))
             }),
             e.on("nextClick", function(e) {
-                a.related.nextShownReason && Wa(a, e, Z)
+                a.related.nextShownReason && qa(a, e, X)
             }),
             e.on("nextAutoAdvance", function(e) {
-                Wa(a, e, ee)
+                qa(a, e, Y)
             })
         }),
         t.external.playerAPI.on("relatedReady", function() {
-            t.related.relatedSetUp || Ha(t)
+            t.related.relatedSetUp || Ua(t)
         }))
     }
-    var Ja = {
+    var _a = {
         facebook: "fb",
         twitter: "twi",
         email: "em",
@@ -2717,49 +2468,54 @@
         linkedin: "lkn",
         custom: "cus"
     };
-    function Xa(e) {
-        e.external.playerAPI.on("ready", function() {
-            !function(a) {
-                var e = a.external.playerAPI;
-                if (e.getPlugin) {
-                    var t = e.getPlugin("sharing");
-                    t && t.on("click", function(e) {
-                        a.sharing.shareMethod = Ja[e.method] || Ja.custom,
-                        ga(a, $)
-                    })
-                }
-            }(e)
+    function za(t) {
+        t.external.playerAPI.on("ready", function() {
+            var a, e;
+            !(e = (a = t).external.playerAPI).getPlugin || (e = e.getPlugin("sharing")) && e.on("click", function(e) {
+                a.sharing.shareMethod = _a[e.method] || _a.custom,
+                ca(a, W)
+            })
         })
     }
-    var Ya = .01;
-    var Za, et = (Za = function() {
+    function Ka(e) {
+        var a;
+        a = e,
+        "function" == typeof navigator.sendBeacon && ka(a),
+        Na(e),
+        ba(e),
+        Qa(e),
+        za(e)
+    }
+    var Wa = .01;
+    var Ha, $a = (Ha = function() {
         var e = navigator.plugins;
         if (e && "object" == typeof e["Shockwave Flash"]) {
-            var a = e["Shockwave Flash"].description;
-            if (a)
-                return a
+            e = e["Shockwave Flash"].description;
+            if (e)
+                return e
         }
         if (void 0 !== window.ActiveXObject)
             try {
-                var t = new window.ActiveXObject("ShockwaveFlash.ShockwaveFlash");
-                if (t) {
-                    var n = t.GetVariable("$version");
-                    if (n)
-                        return n
+                var a = new window.ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+                if (a) {
+                    a = a.GetVariable("$version");
+                    if (a)
+                        return a
                 }
             } catch (e) {}
         return ""
     }().replace(/\D+(\d+\.?\d*).*/, "$1"),
     function() {
-        return Za
+        return Ha
     }
-    ), at = V(12);
-    function tt(e) {
+    ), Ja = I(12);
+    function Xa(e) {
         if (e)
             return {
-                pageViewId: at
+                pageViewId: Ja
             };
-        var a, t = window.top !== window.self, n = function(e, a, t) {
+        var a = window.top !== window.self
+          , t = function(e, a, t) {
             var n = ""
               , r = ""
               , i = ""
@@ -2769,9 +2525,9 @@
                     var a = e.match(/^(https?:\/\/).*\.(?:ampproject\.org|bing-amp\.com)\/(?:.\/)?(?:.\/)?(.*)$/);
                     if (a && 1 < a.length)
                         return "" + a[1] + a[2];
-                    var t = e.match(/^(https?:\/\/.*)\.(?:cdn\.ampproject\.org|bing-amp\.com)$/);
-                    if (t && 1 < t.length)
-                        return ("" + t[1]).replace(/([^-])(\-)([^-])/g, "$1.$3").replace(/\-\-/g, "-");
+                    a = e.match(/^(https?:\/\/.*)\.(?:cdn\.ampproject\.org|bing-amp\.com)$/);
+                    if (a && 1 < a.length)
+                        return ("" + a[1]).replace(/([^-])(\-)([^-])/g, "$1.$3").replace(/\-\-/g, "-");
                     return e
                 }(r = a),
                 o = n !== a;
@@ -2788,96 +2544,95 @@
                 amp: o,
                 pageTitle: i
             }
-        }(t, document.referrer, window.top), r = document.querySelector('meta[property="og:title"]'), i = void 0;
-        return r && (i = r.getAttribute("content")),
+        }(a, document.referrer, window.top)
+          , n = document.querySelector('meta[property="og:title"]')
+          , e = void 0;
+        return n && (e = n.getAttribute("content")),
         {
-            pageURL: n.pageURL || window.location.href,
-            origPageURL: n.amp ? n.origPageURL : void 0,
-            pageTitle: n.pageTitle || document.title,
-            inIframe: t,
-            flashVersion: et(),
-            pageViewId: at,
-            pageOGTitle: i,
+            pageURL: t.pageURL || window.location.href,
+            origPageURL: t.amp ? t.origPageURL : void 0,
+            pageTitle: t.pageTitle || document.title,
+            inIframe: a,
+            flashVersion: $a(),
+            pageViewId: Ja,
+            pageOGTitle: e,
             testCaseId: void 0,
-            amp: n.amp,
-            jwAmpComponent: (a = document.location.search,
-            /isAMP/.test(a))
+            amp: t.amp,
+            jwAmpComponent: /isAMP/.test(document.location.search)
         }
     }
-    var nt = void 0;
+    var Ya = void 0;
     try {
-        nt = window.localStorage
+        Ya = window.localStorage
     } catch (e) {}
-    var rt = function() {
-        function e() {
-            na(this, e),
-            this.pingTracker = {}
-        }
-        return e.prototype.canSendPing = function(e) {
-            return !this.pingTracker[e]
-        }
-        ,
-        e.prototype.setPingSent = function(e) {
-            this.pingTracker[e] = !0
-        }
-        ,
-        e.prototype.resetAll = function() {
-            this.pingTracker = {}
-        }
-        ,
-        e.prototype.resetKey = function(e) {
-            delete this.pingTracker[e]
-        }
-        ,
-        e
-    }();
-    var it = ["1", "yes", "true"];
-    function ot(e, a) {
-        return !0 === e || !!(t = a) && 0 <= it.indexOf(t.toString());
-        var t
+    var Za = function(e, a) {
+        if (!(e instanceof a))
+            throw new TypeError("Cannot call a class as a function")
     }
-    var dt = 0;
-    function lt(e, a, t) {
-        var n = a.sdkplatform ? parseInt(a.sdkplatform, 10) : R
+      , et = (at.prototype.canSendPing = function(e) {
+        return !this.pingTracker[e]
+    }
+    ,
+    at.prototype.setPingSent = function(e) {
+        this.pingTracker[e] = !0
+    }
+    ,
+    at.prototype.resetAll = function() {
+        this.pingTracker = {}
+    }
+    ,
+    at.prototype.resetKey = function(e) {
+        delete this.pingTracker[e]
+    }
+    ,
+    at);
+    function at() {
+        Za(this, at),
+        this.pingTracker = {}
+    }
+    var tt = ["1", "yes", "true"];
+    function nt(e, a) {
+        return !0 === e || !!(a = a) && 0 <= tt.indexOf(a.toString())
+    }
+    var rt = 0;
+    function it(e, a, t) {
+        var n = a.sdkplatform ? parseInt(a.sdkplatform, 10) : D
           , r = e.getConfig()
           , i = (r || {}).advertising || {}
-          , o = dt += 1
+          , o = rt += 1
           , d = "doNotTrack"in navigator || "doNotTrack"in window || "msDoNotTrack"in navigator ? navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack : "unsupported"
-          , l = ot(d, r.doNotSaveCookies)
-          , u = void 0
-          , c = void 0;
-        if (l)
-            nt && nt.removeItem("jwplayerLocalId");
-        else {
-            var s = function() {
-                if (!nt)
-                    return {
-                        localID: null,
-                        storageAvailable: "fail"
-                    };
-                var e = nt.jwplayerLocalId;
-                if (e)
-                    return {
-                        localID: e,
-                        storageAvailable: "read"
-                    };
-                try {
-                    return nt.jwplayerLocalId = V(12),
-                    {
-                        localID: nt.jwplayerLocalId,
-                        storageAvailable: "set"
-                    }
-                } catch (e) {
-                    return {
-                        localID: null,
-                        storageAvailable: "fail"
-                    }
+          , l = nt(d, r.doNotSaveCookies)
+          , c = void 0
+          , u = void 0;
+        l ? Ya && Ya.removeItem("jwplayerLocalId") : (c = (v = function() {
+            if (!Ya)
+                return {
+                    localID: null,
+                    storageAvailable: "fail"
+                };
+            var e = Ya.jwplayerLocalId;
+            if (e)
+                return {
+                    localID: e,
+                    storageAvailable: "read"
+                };
+            try {
+                return Ya.jwplayerLocalId = I(12),
+                {
+                    localID: Ya.jwplayerLocalId,
+                    storageAvailable: "set"
                 }
-            }();
-            u = s.localID,
-            c = s.storageAvailable
-        }
-        var p, f = (p = document.querySelector("html")) ? p.getAttribute("lang") : null, m = window.matchMedia && window.matchMedia("(display-mode: standalone)").matches || !0 === window.navigator.standalone, v = function() {
+            } catch (e) {
+                return {
+                    localID: null,
+                    storageAvailable: "fail"
+                }
+            }
+        }()).localID,
+        u = v.storageAvailable);
+        var s = (y = document.querySelector("html")) ? y.getAttribute("lang") : null
+          , p = window.matchMedia && window.matchMedia("(display-mode: standalone)").matches || !0 === window.navigator.standalone
+          , f = function() {
             try {
                 if (window.top !== window.self)
                     return window.top.document.referrer
@@ -2885,9 +2640,11 @@
                 return null
             }
             return document.referrer
-        }(), g = r.defaultPlaybackRate || 1, y = L(i.client);
+        }()
+          , m = r.defaultPlaybackRate || 1
+          , g = T(i.client);
         e.getPlugin && e.getPlugin("related");
-        var b, h, k, D, w, S, I, T, P, E, C, A = Math.random() <= Ya;
+        var v, y, b = Math.random() <= Wa;
         return {
             external: {
                 playerAPI: e,
@@ -2901,10 +2658,10 @@
                     startupTime: null,
                     dispatchEvent: null
                 },
-                visualQuality: O(e),
+                visualQuality: P(e),
                 numAutoVisualQualityChange: 0,
                 lastErrorCode: {},
-                defaultPlaybackRate: g,
+                defaultPlaybackRate: m,
                 playerConfig: {
                     visibility: -1,
                     bandwidthEstimate: -1,
@@ -2923,76 +2680,67 @@
                 },
                 contextualEmbed: !!r.contextual,
                 playbackMode: null,
-                stringifiedSetupConfig: G(e),
+                stringifiedSetupConfig: A(e),
                 captionsIndex: 0
             },
-            staticPlayerData: (I = e,
-            T = a,
-            P = n,
-            C = {
-                playerVersion: (E = I.version,
-                E.split("+")[0]),
-                sdkPlatform: T.sdkplatform || R,
-                embedID: V(12)
+            staticPlayerData: (v = a,
+            y = n,
+            t = {
+                playerVersion: (t = e).version.split("+")[0],
+                sdkPlatform: v.sdkplatform || D,
+                embedID: I(12)
             },
-            P && (C.sdkVersion = T.iossdkversion,
-            C.bundleId = T.bundleId,
-            C.advertisingId = T.advertisingId,
-            C.deviceModel = T.deviceModel),
-            C),
+            y && (t.sdkVersion = v.iossdkversion,
+            t.bundleId = v.bundleId,
+            t.advertisingId = v.advertisingId,
+            t.deviceModel = v.deviceModel),
+            t),
             casting: !1,
-            accountData: function(e, a) {
-                var t = 0
-                  , n = void 0;
-                if (e) {
-                    var r = new a(e)
-                      , i = r.edition();
-                    (t = j[i] || 0) !== x && (n = r.token())
-                }
-                return n || (n = "_"),
-                {
-                    analyticsID: n,
-                    edition: t
-                }
-            }(r.key, e.utils.key),
-            configData: (h = r,
-            D = window.jwplayer && window.jwplayer.defaults || {},
-            w = h.related,
-            S = {
-                playerHosting: h[re] || D[re] || 0,
-                playerConfigKey: h.pid,
-                abTestConfig: h.pad,
-                skinName: h.skin,
-                advertisingBlockType: (k = h,
-                k.advertising ? k.advertising.outstream ? 2 : 1 : 0),
-                sharingEnabled: !!h.sharing,
-                castingBlockPresent: !!h.cast,
-                gaBlockPresent: !!h.ga,
-                autostartConfig: !!h.autostart,
-                displayDescription: !1 !== h.displaydescription,
-                posterImagePresent: !!h.image,
-                playbackRateControlsSet: !!h.playbackRateControls
+            accountData: (y = r.key,
+            v = e.utils.key,
+            e = void (t = 0),
+            y && (y = (v = new v(y)).edition(),
+            (t = h[y] || 0) !== k && (e = v.token())),
+            {
+                analyticsID: e = e || "_",
+                edition: t
+            }),
+            configData: (v = r,
+            e = window.jwplayer && window.jwplayer.defaults || {},
+            t = v.related,
+            e = {
+                playerHosting: v[te] || e[te] || 0,
+                playerConfigKey: v.pid,
+                abTestConfig: v.pad,
+                skinName: v.skin,
+                advertisingBlockType: (e = v).advertising ? e.advertising.outstream ? 2 : 1 : 0,
+                sharingEnabled: !!v.sharing,
+                castingBlockPresent: !!v.cast,
+                gaBlockPresent: !!v.ga,
+                autostartConfig: !!v.autostart,
+                displayDescription: !1 !== v.displaydescription,
+                posterImagePresent: !!v.image,
+                playbackRateControlsSet: !!v.playbackRateControls
             },
-            h.autostart in B && (S.autostartConfig = B[h.autostart]),
-            w && (S.relatedPluginFeedFile = w.recommendations || w.file),
-            S),
+            v.autostart in w && (e.autostartConfig = w[v.autostart]),
+            t && (e.relatedPluginFeedFile = t.recommendations || t.file),
+            e),
             browser: {
-                langAttr: f,
-                isPageStandalone: m,
-                docReferrer: v,
+                langAttr: s,
+                isPageStandalone: p,
+                docReferrer: f,
                 storage: {
-                    localID: u,
-                    storageAvailable: c,
+                    localID: c,
+                    storageAvailable: u,
                     doNotTrackProperty: d
                 },
-                pageData: tt(n),
+                pageData: Xa(n),
                 doNotTrackUser: l
             },
             meta: {
                 debug: !0 === a.debug,
-                doNotPingBackIDs: (b = r,
-                !0 === b.doNotTrackCookies),
-                setupCount: dt,
+                doNotPingBackIDs: !0 === r.doNotTrackCookies,
+                setupCount: rt,
                 nthPlayer: o,
                 playbackEvents: {},
                 playbackSent: void 0,
@@ -3007,7 +2755,7 @@
                     segmentsEncrypted: !1,
                     playItemCount: 0,
                     playSessionSequence: 0,
-                    prevPlaybackRate: g,
+                    prevPlaybackRate: m,
                     retTimeWatched: 0,
                     normalizedTime: -1,
                     elapsedSeconds: 0,
@@ -3035,16 +2783,16 @@
                 playerStateDuration: 0,
                 playerRemoved: !1,
                 pingLimiters: {
-                    playlistItem: new rt
+                    playlistItem: new et
                 },
-                sessionSampled: A
+                sessionSampled: b
             },
             playlistItemData: {
                 ready: void 0,
                 item: {},
                 drm: "",
                 index: 0,
-                itemId: V(12),
+                itemId: I(12),
                 mediaId: "",
                 playReason: "",
                 duration: 0
@@ -3070,19 +2818,14 @@
             },
             sharing: {
                 shareMethod: null,
-                shareReferrer: function(e) {
-                    if (!e)
-                        return null;
-                    var a = e.match(/[?&]jwsource=([^&]+)/);
-                    return a ? decodeURIComponent(a[1]) : null
-                }(window.location.search)
+                shareReferrer: (b = (b = window.location.search) && b.match(/[?&]jwsource=([^&]+)/)) ? decodeURIComponent(b[1]) : null
             },
             ads: {
-                adEventData: M({}, q),
+                adEventData: S({}, B),
                 advertisingConfig: i,
-                adClient: y,
+                adClient: g,
                 adScheduleId: i.adscheduleid,
-                adBreakTracking: -1 !== y ? {
+                adBreakTracking: -1 !== g ? {
                     shouldTrack: !1,
                     adBreakCount: 0
                 } : null,
@@ -3100,7 +2843,7 @@
                 jwAdErrorCode: null,
                 currentQuartile: null,
                 pingLimiters: {
-                    visibleEvent: new rt
+                    visibleEvent: new et
                 }
             },
             errors: {
@@ -3120,49 +2863,45 @@
             }
         }
     }
-    var ut = 0;
+    var ot = 0;
     (window.jwplayerPluginJsonp || window.jwplayer().registerPlugin)("jwpsrv", "7.0", function(e, a, t) {
-        var n, r, i = lt(e, a, t);
-        Pa(n = i),
-        za(n),
-        Ta(n),
-        $a(n),
-        Xa(n),
-        pa(i),
-        this.getTrackingPixelURLs = (r = i,
+        var n, r = it(e, a, t);
+        Ka(r),
+        ia(r),
+        this.getTrackingPixelURLs = (n = r,
         function(e, a) {
-            r.ads.headerBiddingCacheData.bidder = e,
-            r.ads.headerBiddingCacheData.cacheKey = a;
-            var t = ga(r, "vci", "clienta", {
+            n.ads.headerBiddingCacheData.bidder = e,
+            n.ads.headerBiddingCacheData.cacheKey = a;
+            e = ca(n, "vci", "clienta", {
                 returnURL: !0
-            })
-              , n = ga(r, "vcae", "clienta", {
+            }),
+            a = ca(n, "vcae", "clienta", {
                 returnURL: !0
             });
-            return r.ads.headerBiddingCacheData.bidder = void 0,
-            r.ads.headerBiddingCacheData.cacheKey = void 0,
+            return n.ads.headerBiddingCacheData.bidder = void 0,
+            n.ads.headerBiddingCacheData.cacheKey = void 0,
             {
-                impression: t,
-                error: n
+                impression: e,
+                error: a
             }
         }
         ),
         this.doNotTrackUser = function(e) {
             return e.meta.doNotPingBackIDs
         }
-        .bind(null, i),
+        .bind(null, r),
         this.trackExternalAPIUsage = function(e, a) {
-            var t, n, r;
-            if (!(25 <= ut || .005 < Math.random()))
-                return ut++,
-                n = e,
-                r = a,
-                (t = i).playerData.apiTracking = {
-                    methodCalled: n,
-                    firstMeaningfulParam: r
+            var t;
+            if (!(25 <= ot || .005 < Math.random()))
+                return ot++,
+                t = e,
+                e = a,
+                (a = r).playerData.apiTracking = {
+                    methodCalled: t,
+                    firstMeaningfulParam: e
                 },
-                ga(t, te, "jwplayer6"),
-                void delete t.playerData.apiTracking
+                ca(a, ee, "jwplayer6"),
+                void delete a.playerData.apiTracking
         }
     })
 }();
