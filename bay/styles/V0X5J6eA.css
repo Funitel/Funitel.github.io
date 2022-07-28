@@ -416,7 +416,7 @@ width:28.88889%;float:right;margin:5px 0 0}
 .an3 .an4 :last-child,.an3 .ap6 a .text :last-child{margin-bottom:0}
 .an3 .an4.default{padding-bottom: 20px;border-bottom: dotted #6e6e73}
 @media (min-width:880px){.an3 .an4.default:not(.inline){
-padding:0;margin-top:8px;box-shadow:none}
+padding:0;margin-top:8px;box-shadow:none;border-bottom: none}
 .an3.an5 .an4{float:left}}
 .an3 .ap6 a{display:flex;flex-direction:column;box-shadow:none}
 .an3 .ap6 a .text{padding:30px}
